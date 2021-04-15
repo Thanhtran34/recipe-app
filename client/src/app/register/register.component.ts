@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     user.username = form.value.username;
     user.email = form.value.email;
     user.password = form.value.passwords.password;
-    user.password2 = form.value.passwords.password2
+    user.password2 = form.value.passwords.confirmPassword
 
     this.spinner.show();
     this.authService.registerUser(user)

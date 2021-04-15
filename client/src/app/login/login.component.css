@@ -1,0 +1,36 @@
+mat-card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+mat-form-field, button {
+  width: 100%;
+}
+
+mat-label {
+  padding: 10px;
+  display: inline-block;
+}
+
+input {
+  height: 40px;
+}
+
+.login {
+  max-width: 575px;
+}
+  
+.footer {
+  font-size: 14px;
+  margin: 0;
+  text-align: end;
+}
+
+.reg-link {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit {
+  margin-top: 10px;
+}

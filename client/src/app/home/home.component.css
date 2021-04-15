@@ -1,0 +1,23 @@
+img {
+  max-width: 512px;
+}
+
+mat-card-header {
+  margin-bottom: 60px;
+  font-size: 2em;
+  font-style: oblique;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.welcome-card {
+  max-width: 575px;
+}

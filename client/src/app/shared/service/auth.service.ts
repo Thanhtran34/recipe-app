@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Router } from '@angular/router';
 import { User } from '../entities/user'
 import { ValidatePassMatch } from '../validators/pass-match.validator';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   endpoint: string = 'http://localhost:3000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
-
+  private jwtHelper: JwtHelperService = new JwtHelperService();
 
   constructor(
     private http: HttpClient,
@@ -33,32 +34,39 @@ export class AuthService {
 
   getFormGroup(): FormGroup {
     return this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
+      username: new FormControl ('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       passwords: this.fb.group({
-        password: ['', [Validators.required]],
-        confirmPassword: ['', [Validators.required]]
+        password: new FormControl ('', [Validators.required]),
+        confirmPassword: new FormControl('', [Validators.required])
       }, { validator: ValidatePassMatch })
     });
   }
 
-  login(user: User){
+  login(user: User) {
     return this.http.post<any>(`${this.endpoint}/login`, JSON.stringify(user))
-      .subscribe((res: any) => {
+      .pipe(
+        map ((res: any) => {
         localStorage.setItem('access_token', res.token)
           this.currentUser = res;
-          this.router.navigate(['/']);
-        })
+          this.router.navigate(['']);
+          return res
+        }))
       }
+
 
   getToken() {
     return localStorage.getItem('access_token');
   }
 
+  tokenExpired () {
+    return !this.jwtHelper.isTokenExpired('access_token')
+  }
+
   logout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     }
   }
 

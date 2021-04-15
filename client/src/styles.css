@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+mat-card {
+    margin: 25px auto;
+}
+
+mat-card-header {
+    font-size: larger;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 575px) {
+    mat-card {
+        margin: 0 auto 25px;
+    }
+}
