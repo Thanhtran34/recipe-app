@@ -1,5 +1,13 @@
 <mat-toolbar color="primary">
-  <mat-icon [routerLink]="['/']">Kitchen Helper</mat-icon>
-  <mat-icon [routerLink]="['/register']">Register</mat-icon>
-  <mat-icon [routerLink]="['/login']">Login</mat-icon>
+  <img class="logo" src="../../assets/icons/icon72.png" alt="logo" [routerLink]="['/']">
+  <div class="name" [routerLink]="['/']">Kitchen Helper</div>
+
+  <span class="spacer"></span>
+   <div *ngIf="authService.isLoggedIn">
+    <button mat-button (click)="logout()">Logout</button>
+   </div>
+
+
+  <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/login']">Log In</button>
+  <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/register']">Register</button>
 </mat-toolbar>

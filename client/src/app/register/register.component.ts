@@ -1,11 +1,10 @@
 import { AuthService } from './../shared/service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize } from 'rxjs/internal/operators/finalize';
-import { User } from '../shared/entities/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-register',
@@ -17,38 +16,35 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
+    public authService: AuthService,
+    public router: Router,
+    public fb: FormBuilder,
+    private snackBar: MatSnackBar,
     private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.registerForm = this.authService.getFormGroup();
-  }
-
-  submit(form: FormGroup): void {
-    if (!form.valid) {
-      return;
+    this.registerForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: new FormControl('', [Validators.required]),
+      password2: new FormControl('', [Validators.required, RxwebValidators.compare({ fieldName:'password' })])
+      })
     }
-    const user = new User();
-    user.username = form.value.username;
-    user.email = form.value.email;
-    user.password = form.value.passwords.password;
-    user.password2 = form.value.passwords.confirmPassword
 
-    this.spinner.show();
-    this.authService.registerUser(user)
-      .pipe(finalize(() => this.spinner.hide()))
-      .subscribe(() => {
-        this.router.navigate(['login']);
-      }, (err: HttpErrorResponse) => {
-        if (err.error.emailUsed) {
-          this.registerForm.controls['email'].setErrors({ 'taken': true });
-        }
-        if (err.error.usernameUsed) {
-          this.registerForm.controls['username'].setErrors({ 'taken': true });
-        }
-      });
+  submit() {
+    this.authService.registerUser(this.registerForm.value).subscribe((res) => {
+      //this.spinner.show()
+      if (res.userId) {
+        this.spinner.show()
+        setTimeout(() => {
+          /** spinner ends after 1 second */
+          this.spinner.hide();
+        }, 500);
+        this.registerForm.reset()
+        this.router.navigate(['/login'])
+        this.snackBar.open('Registration successful!', 'OK', { duration: 5000 });
+      } else console.log(res)
+    })
   }
-
 }

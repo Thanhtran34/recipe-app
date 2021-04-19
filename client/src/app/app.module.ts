@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
@@ -18,6 +20,7 @@ import { HeaderComponent } from './toolbar/header/header.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RxReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -41,7 +45,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatCheckboxModule,
     NgxSpinnerModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule
   ],
   providers: [
     {

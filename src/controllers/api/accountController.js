@@ -154,10 +154,6 @@ export class AccountController {
       res
         .status(200)
         .json({ userId: user.id })
-
-      // res
-      //   .status(200)
-      //   .json({ userId: user.id })
     } catch (error) {
       next(createError(409))
     }

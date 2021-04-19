@@ -13,6 +13,7 @@ import bcrypt from 'bcrypt'
  */
 const schema = new mongoose.Schema({
   username: {
+    unique: true,
     type: String,
     required: true
   },

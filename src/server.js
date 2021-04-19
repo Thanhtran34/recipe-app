@@ -10,7 +10,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
-import nodemailer from 'nodemailer'
+// import nodemailer from 'nodemailer'
 import { config } from './config/passport.js'
 import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
@@ -42,7 +42,7 @@ const main = async () => {
   // Register routes.
   app.use('/', router)
 
-  app.post('/contact', (req, res) => {
+  /** app.post('/contact', (req, res) => {
     const data = req.body
 
     const smtpTransport = nodemailer.createTransport({
@@ -72,6 +72,7 @@ const main = async () => {
       smtpTransport.close()
     })
   })
+  */
 
   // Error handler.
   app.use(function (err, req, res, next) {

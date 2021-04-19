@@ -1,8 +1,14 @@
-.mat-toolbar {
-  display: flex;
-  justify-content: space-between;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.mat-icon {
+.name, .logo {
+  outline: none;
   cursor: pointer;
+  white-space: pre-wrap;
+  line-height: normal;
+}
+
+.logo {
+  max-height: 90%;
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize } from 'rxjs/internal/operators/finalize';
 
 import { AuthService } from './shared/service/auth.service';
 
@@ -16,14 +15,14 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    this.spinner.show();
+    this.spinner.hide();
     this.checkIfLoggedIn();
   }
 
   checkIfLoggedIn() {
     (res: any) => {
      if (this.authService.isLoggedIn && res) {
-       finalize(() => this.spinner.hide())
+      this.spinner.show()
       } else this.spinner.hide();
     }
   }

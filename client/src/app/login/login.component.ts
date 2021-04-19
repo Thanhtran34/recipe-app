@@ -1,12 +1,12 @@
 import { AuthService } from './../shared/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-import { finalize } from 'rxjs/internal/operators/finalize';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { User } from '../shared/entities/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+// import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
+    private snackBar: MatSnackBar,
     private spinner: NgxSpinnerService
   ) {
     this.shouldRemember = false;
@@ -29,30 +30,28 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]]
+      username: new FormControl('',[Validators.required]),
+      email: new FormControl ('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      password2: new FormControl('', [Validators.required, RxwebValidators.compare({ fieldName:'password' })])
     });
   }
 
-  submit(form: FormGroup): void {
-    if (!form.valid) {
-      return;
-    }
-    const user = new User();
-    user.email = form.value.email;
-    user.password = form.value.password;
-    user.password2 = form.value.confirmPassword;
-    user.remember = this.shouldRemember;
-
-    this.spinner.show();
-    this.authService.login(user)
-      .pipe(finalize(() => this.spinner.hide()))
-      .subscribe(() => {
-        this.spinner.show();
+  submit() {
+    this.authService.loginUser(this.loginForm.value)
+      .subscribe((res) => {
+        this.spinner.show()
+        setTimeout(() => {
+          /** spinner ends after 1 second */
+          this.spinner.hide();
+        }, 500);
+        this.snackBar.open('You are now logged in!', 'OK', { duration: 5000 });
+        console.log(res)
         this.authService.isLoggedIn === true;
+        this.shouldRemember = true;
         this.router.navigate(['']);
       }, () => {
+        this.shouldRemember;
         this.authService.isLoggedIn === false;
       });
   }
