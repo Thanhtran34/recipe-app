@@ -1,13 +1,36 @@
 <mat-toolbar color="primary">
-  <img class="logo" src="../../assets/icons/icon72.png" alt="logo" [routerLink]="['/']">
-  <div class="name" [routerLink]="['/']">Kitchen Helper</div>
-
+  <div *ngIf="!authService.isLoggedIn" [routerLink]="['/']">
+   <mat-icon>home</mat-icon>
+   <span>Home</span>
+  </div>
+  <div *ngIf="authService.isLoggedIn" [routerLink]="['/']">
+    <mat-icon> directions_run</mat-icon>
+    <img class="logo" src="../../assets/icons/icon72.png" alt="logo">
+  </div>
+  
   <span class="spacer"></span>
-   <div *ngIf="authService.isLoggedIn">
-    <button mat-button (click)="logout()">Logout</button>
-   </div>
 
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu recipe" *ngIf="authService.isLoggedIn">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>restaurant</mat-icon>
+      <span>Add Recipe</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>cake</mat-icon>
+      <span>Check Nutrients</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>domain</mat-icon>
+      <span>Calculator</span>
+    </button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>  
 
+   <button mat-button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
   <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/login']">Log In</button>
   <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/register']">Register</button>
 </mat-toolbar>
+<app-dashboard *ngIf="authService.isLoggedIn===true"></app-dashboard>

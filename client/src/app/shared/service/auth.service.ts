@@ -1,11 +1,9 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../entities/user'
-import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +13,6 @@ export class AuthService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   
-  private jwtHelper: JwtHelperService = new JwtHelperService();
-
   constructor(
     private http: HttpClient,
     public router: Router,
@@ -45,10 +41,6 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('access_token');
-  }
-
-  tokenExpired () {
-    return !this.jwtHelper.isTokenExpired('access_token')
   }
 
   doLogout() {

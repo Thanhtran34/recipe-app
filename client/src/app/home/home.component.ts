@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   LoggedIn!: boolean;
 
   constructor(
-      public authService: AuthService
+      private authService: AuthService
   ) { }
 
   ngOnInit(): void {

@@ -31,9 +31,10 @@
         </mat-error>
       </mat-form-field>
       <span class="remember-me">
-        <mat-checkbox (change)="shouldRemember = !shouldRemember">Remember me</mat-checkbox>
+        <mat-checkbox (change)="shouldAgree = !shouldAgree">I Have Read And Agree To <a href="
+          https://lagen.nu/1998:204">Terms of use.</a></mat-checkbox>
       </span>
-      <button mat-raised-button type="submit" class="submit" color="primary">Log In</button>
+      <button mat-raised-button type="submit" class="submit" color="primary" *ngIf="shouldAgree===true">Log In</button>
     </form>
   </mat-card-content>
   <mat-card-footer class="footer">
