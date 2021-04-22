@@ -1,0 +1,66 @@
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Add Recipe</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="recipeForm" (ngSubmit)="updateRecipeForm()" #resetRecipeForm="ngForm" novalidate>
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- Title -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Recipe title" formControlName="title">
+        </mat-form-field>
+
+        <!-- Ingredients -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Ingredients" formControlName="ingredients">
+          <mat-error *ngIf="handleError('ingredients', 'required')">
+            You must provide a<strong>ingredients</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Intructions -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Instructions" formControlName="instrutions">
+          <mat-error *ngIf="handleError('instructions', 'required')">
+            You must provide a<strong>instruction</strong>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </mat-card>
+
+    <!-- Right block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- Add subjects -->
+        <mat-form-field class="multiple-items">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let categoryArray of categoryArray" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(categoryArray)">
+              {{categoryArray.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Add subject" [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <i class="material-icons tooltip-info" matTooltip="Enter category and press enter to add categories">
+            info
+          </i>
+        </mat-form-field>
+
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Update</button>
+        </div>
+      </div>
+    </mat-card>
+
+</div>

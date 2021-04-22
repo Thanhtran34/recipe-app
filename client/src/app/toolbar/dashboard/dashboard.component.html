@@ -5,7 +5,12 @@
       <span class="sidenav__item-text">Enjoy and have fun!</span>
     </div>
 
-    <div class="icon">
+    <div class="icon" [routerLink]="['/recipe-list']" >
+      <mat-icon class="sidenav__icon">fastfood</mat-icon>
+      <span>All Recipes</span>
+    </div>
+
+    <div class="icon" >
       <mat-icon class="sidenav__icon">restaurant</mat-icon>
       <span>Add Recipe</span>
     </div>
@@ -15,10 +20,10 @@
       <span>Check Nutrients</span>
     </div>
 
-    <div class="icon">
+    <div class="icon" [routerLink]="['/calculator']">
       <mat-icon>domain</mat-icon>
       <span>Calculator</span> 
-    </div>
+    </div> 
   </mat-drawer>
 
   <div class="dashboard-sidenav-content">
@@ -28,3 +33,9 @@
   </div>
 
 </mat-drawer-container>
+
+
+
+
+
+

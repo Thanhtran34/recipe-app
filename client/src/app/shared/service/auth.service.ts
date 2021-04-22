@@ -32,6 +32,7 @@ export class AuthService {
       .pipe(
         map ((res: any) => {
         localStorage.setItem('access_token', res.token)
+          console.log(res.token)
           this.currentUser = res;
           this.router.navigate(['/']);
           return res
@@ -46,7 +47,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     }
   }
 

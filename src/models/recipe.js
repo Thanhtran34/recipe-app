@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
   title: { type: String, required: true },
   ingredients: { type: [], required: true },
   instructions: { type: String, required: true },
-  category: { type: String, required: true }
+  category: { type: [], required: true }
 }, {
   timestamps: true,
   versionKey: false,

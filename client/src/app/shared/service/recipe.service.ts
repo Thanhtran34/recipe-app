@@ -1,7 +1,8 @@
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Recipe } from '../entities/recipe';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -22,22 +23,33 @@ export class RecipeService {
     );
   }
 
-  updateRecipe(updateData: Recipe, recipeId: string) {
-    return this.http.put(`${this.endpoint}/recipe/${recipeId}`, updateData, { headers: this.headers })
+  updateRecipe(data: Recipe, id: string) {
+    return this.http.put(`${this.endpoint}/recipe/${id}`, data, { headers: this.headers })
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  deleteRecipe(recipeId: string): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.endpoint}/recipe/${recipeId}`, { headers: this.headers })
+  deleteRecipe(id: string): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.endpoint}/recipe/${id}`, { headers: this.headers })
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  getRecipess(): Observable<Recipe[]> {
+  getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.endpoint}/recipe`, { headers: this.headers });
+  }
+
+  getRecipe(id: string): Observable<any> {
+    let API_URL = `${this.endpoint}/read-student/${id}`;
+    return this.http.get(API_URL, { headers: this.headers })
+      .pipe(
+        map((res) => {
+          return res || {}
+        }),
+        catchError(this.handleError)
+      )
   }
 
   handleError(err: HttpErrorResponse) {
@@ -49,6 +61,7 @@ export class RecipeService {
       // server-side error
       msg = `Error Code: ${err.status}\nMessage: ${err.message}`;
     }
+    console.log(msg)
     return throwError(msg);
   }
 }

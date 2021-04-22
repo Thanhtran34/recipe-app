@@ -14,7 +14,11 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item >
+      <mat-icon>fastfood</mat-icon>
+      <span [routerLink]="['/recipe-list']">All Recipe</span>
+    </button>
+    <button mat-menu-item >
       <mat-icon>restaurant</mat-icon>
       <span>Add Recipe</span>
     </button>
@@ -24,7 +28,7 @@
     </button>
     <button mat-menu-item>
       <mat-icon>domain</mat-icon>
-      <span>Calculator</span>
+      <span [routerLink]="['/calculator']">Calculator</span>
     </button>
     <button mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>  
@@ -33,4 +37,5 @@
   <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/login']">Log In</button>
   <button mat-button *ngIf="authService.isLoggedIn === false" [routerLink]="['/register']">Register</button>
 </mat-toolbar>
-<app-dashboard *ngIf="authService.isLoggedIn===true"></app-dashboard>
+
+

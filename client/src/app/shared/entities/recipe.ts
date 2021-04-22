@@ -1,8 +1,8 @@
 export class Recipe {
+  id!: string;
   username!: string;
   title!: string;
-  ingredients!: [];
+  ingredients!: Array<string>;
   instructions!: string;
   category!: string;
-  imageUrl!: string;
 }

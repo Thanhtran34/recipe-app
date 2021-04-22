@@ -1,4 +1,4 @@
-<mat-card class="welcome-card">
+<mat-card class="welcome-card" *ngIf="!authService.isLoggedIn">
   <mat-card-header class="header">
       Welcome to Kitchen Helper!
   </mat-card-header>
@@ -6,3 +6,4 @@
       <img mat-card-image src="../../assets/icons/icon.png" alt="Kichen Helper Logo">
   </mat-card-content>
 </mat-card>
+<app-dashboard *ngIf="authService.isLoggedIn"></app-dashboard>

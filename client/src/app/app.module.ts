@@ -1,3 +1,4 @@
+import { RecipeService } from './shared/service/recipe.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/service/auth.service';
 import { AuthconfigInterceptor } from './interceptors/authconfig.interceptor';
@@ -27,12 +28,17 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatMenuModule} from '@angular/material/menu'; 
 import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatPaginatorModule} from '@angular/material/paginator'; 
+import {MatTableModule} from '@angular/material/table'; 
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSelectModule} from '@angular/material/select';  
 import { DashboardComponent } from './toolbar/dashboard/dashboard.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeComponent } from './recipes/recipe/recipe.component';
-import { RecipeAddComponent } from './recipes/recipe-add/recipe-add.component';
 import { LoggedOutGuard } from './guards/logged-out.guard';
-import { HandleErrorInterceptor } from './interceptors/handle-error.interceptor'
+import { HandleErrorInterceptor } from './interceptors/handle-error.interceptor';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +48,10 @@ import { HandleErrorInterceptor } from './interceptors/handle-error.interceptor'
     HomeComponent,
     HeaderComponent,
     DashboardComponent,
-    RecipesComponent,
-    RecipeComponent,
-    RecipeAddComponent
+    RecipeListComponent,
+    AddRecipeComponent,
+    EditRecipeComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
@@ -66,12 +73,17 @@ import { HandleErrorInterceptor } from './interceptors/handle-error.interceptor'
     MatListModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatChipsModule,
+    MatSelectModule
   ],
   providers: [
     AuthService,
     AuthGuard,
     LoggedOutGuard,
+    RecipeService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthconfigInterceptor,
