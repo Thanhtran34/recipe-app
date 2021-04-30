@@ -39,21 +39,15 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.authService.loginUser(this.loginForm.value)
-      .subscribe((res) => {
-          this.spinner.show()
-          setTimeout(() => {
-            /** spinner ends after 1 second */
-            this.spinner.hide();
-          }, 500);
-          this.shouldAgree = true;
-          this.snackBar.open('You are now logged in!', 'OK', { duration: 5000 });
-          console.log(res)
-          this.authService.isLoggedIn === true;
-          this.router.navigate(['']);
-        }, () => {
-          this.shouldAgree;
-          this.authService.isLoggedIn === false;
-        });     
-      }
-  }
+    this.spinner.show()
+    setTimeout(() => {
+      /** spinner ends after 1 second */
+      this.spinner.hide();
+    }, 500);
+    this.shouldAgree = true;
+    this.snackBar.open('You are now logged in!', 'OK', { duration: 5000 });
+    this.authService.isLoggedIn === true;
+    this.router.navigate(['']);
+  };
+}
 

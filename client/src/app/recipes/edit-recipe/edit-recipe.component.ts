@@ -20,7 +20,7 @@ export class EditRecipeComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   @ViewChild('chipList', { static: true }) chipList: any;
-  @ViewChild('resetStudentForm', { static: true }) myNgForm: any;
+  @ViewChild('resetRecipeForm', { static: true }) myNgForm: any;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   recipeForm!: FormGroup;
   categoryArray: Category[] = [];
@@ -53,7 +53,7 @@ export class EditRecipeComponent implements OnInit {
   /* Reactive book form */
   updateBookForm() {
     this.recipeForm = this.fb.group({
-      titel: ['', [Validators.required]],
+      title: ['', [Validators.required]],
       ingredients: ['', [Validators.required]],
       instructions: ['', [Validators.required]],
       category: [this.categoryArray]

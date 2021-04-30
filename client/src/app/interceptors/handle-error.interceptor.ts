@@ -23,16 +23,19 @@ export class HandleErrorInterceptor implements HttpInterceptor {
       this.spinner.hide();
       switch (err.status) {
         case 500:
-          this.snackBar.open(err.error.message, 'OK', { duration: 5000 });
+          this.snackBar.open('Internal Server Error', 'OK', { duration: 5000 });
           break;
         case 400:
-          this.snackBar.open(err.error.message, 'OK', { duration: 5000 });
+          this.snackBar.open('Bad request', 'OK', { duration: 5000 });
           break;
         case 409:
           this.snackBar.open('Email and username must be unique!', 'OK', { duration: 5000 });
           break;
         case 401:
           this.snackBar.open('Email or password is incorrect!', 'OK', { duration: 5000 });
+          break;
+        case 403:
+          this.snackBar.open('Oops, only the creator can edit or delete this recipe!', 'OK', { duration: 5000 });
           break;
         default:
           this.snackBar.open('Something went wrong.', 'OK', { duration: 5000 });

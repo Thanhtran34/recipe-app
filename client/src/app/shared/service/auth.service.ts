@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -29,24 +29,22 @@ export class AuthService {
 
   loginUser(user: User) {
     return this.http.post<any>(`${this.endpoint}/login`, user)
-      .pipe(
-        map ((res: any) => {
-        localStorage.setItem('access_token', res.token)
-          console.log(res.token)
-          this.currentUser = res;
-          this.router.navigate(['/']);
-          return res
-        }))
-      }
-
+    .subscribe((res) => {
+      console.log(res)
+      localStorage.setItem('access_token', res.access_token);
+      localStorage.setItem('userId', res.userId)
+      this.router.navigate([''])
+    })
+  }
 
   getToken() {
-    return localStorage.getItem('access_token');
+    return localStorage.getItem('access_token')  
   }
 
   doLogout() {
+    let removeUser = localStorage.removeItem('userId')
     let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
+    if (removeToken == null && removeUser == null) {
       this.router.navigate(['']);
     }
   }

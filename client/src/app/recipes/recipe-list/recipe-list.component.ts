@@ -3,7 +3,6 @@ import { Recipe } from '../../shared/entities/recipe'
 import { RecipeService } from '../../shared/service/recipe.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-//import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-recipe-list',
@@ -13,12 +12,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class RecipeListComponent implements OnInit {
   RecipeData: any = [];
   dataSource!: MatTableDataSource<Recipe>;
+
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
-  displayedColumns: string[] = ['id', 'creator', 'title', 'category', 'action'];
+  displayedColumns: string[] = ['id', 'title', 'category', 'action'];
 
   constructor(private recipeApi: RecipeService) {
     this.recipeApi.getRecipes().subscribe(data => {
-      //this.router.navigate(['/recipe-list'])
       this.RecipeData = data;
       this.dataSource = new MatTableDataSource<Recipe>(this.RecipeData);
       setTimeout(() => {
@@ -35,7 +34,7 @@ export class RecipeListComponent implements OnInit {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
-      this.recipeApi.deleteRecipe(e._id).subscribe()
+      this.recipeApi.deleteRecipe(e.id).subscribe()
     }
   }
 

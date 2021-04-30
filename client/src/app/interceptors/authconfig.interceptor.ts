@@ -16,13 +16,11 @@ export class AuthconfigInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const authToken = this.authService.getToken();
-    if(authToken) {
         request = request.clone({
             setHeaders: {
                 Authorization: "Bearer " + authToken
             }
         });
-      }
         return next.handle(request);
     }
 }

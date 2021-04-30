@@ -42,7 +42,7 @@ export class RecipeService {
   }
 
   getRecipe(id: string): Observable<any> {
-    let API_URL = `${this.endpoint}/read-student/${id}`;
+    let API_URL = `${this.endpoint}/recipe/${id}`;
     return this.http.get(API_URL, { headers: this.headers })
       .pipe(
         map((res) => {
