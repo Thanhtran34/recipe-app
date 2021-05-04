@@ -14,21 +14,21 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item >
+    <button mat-menu-item  [routerLink]="['/recipe-list']">
       <mat-icon>fastfood</mat-icon>
-      <span [routerLink]="['/recipe-list']">All Recipe</span>
+      <span >All Recipe</span>
     </button>
-    <button mat-menu-item >
+    <button mat-menu-item [routerLink]="['/add-recipe']">
       <mat-icon>restaurant</mat-icon>
-      <span [routerLink]="['/add-recipe']">Add Recipe</span>
+      <span >Add Recipe</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/search']">
       <mat-icon>cake</mat-icon>
-      <span>Check Nutrients</span>
+      <span >Check Nutrients</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/calculator']">
       <mat-icon>domain</mat-icon>
-      <span [routerLink]="['/calculator']">Calculator</span>
+      <span>Calculator</span>
     </button>
     <button mat-menu-item (click)="logout()">Logout</button>
   </mat-menu>  

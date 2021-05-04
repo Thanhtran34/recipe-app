@@ -21,3 +21,10 @@ mat-card-header {
 .welcome-card {
   max-width: 575px;
 }
+
+mat-card {
+  border-style: double;
+  border-color: rgb(22, 206, 22);
+  border-width: 3px;
+}
+

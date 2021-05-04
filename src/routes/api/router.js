@@ -17,4 +17,4 @@ router.get('/', (req, res) => res.json({ message: 'Welcome to Kitchen Helper!' }
 router.use('/', accountRouter)
 router.use('/recipe', recipeRouter)
 router.use('/users', usersRouter)
-router.use('/search', nutrientRouter)
+router.use('/food', nutrientRouter)

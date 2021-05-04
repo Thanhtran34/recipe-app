@@ -12,3 +12,8 @@ mat-card-header{
   font-size: large;
   font-weight: bold;
 }
+
+mat-card {
+  width: 70vw;
+  border-style: groove;
+}

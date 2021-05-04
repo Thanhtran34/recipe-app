@@ -6,6 +6,9 @@
 mat-card {
   width: 600px;
   height: 100%;
+  border-style: outset;
+  border-color: rgb(82, 168, 238);
+  border-width: 3px;
 }
 
 mat-form-field, button {

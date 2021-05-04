@@ -34,3 +34,9 @@ input {
 .submit {
   margin-top: 10px;
 }
+
+mat-card {
+  border-style: double;
+  border-color: rgb(82, 168, 238);
+  border-width: 3px;
+}

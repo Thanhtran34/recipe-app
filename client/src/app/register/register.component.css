@@ -31,3 +31,9 @@ input {
   margin: 0;
   text-align: end;
 }
+
+mat-card {
+  border-style: double;
+  border-color: rgb(82, 168, 238);
+  border-width: 3px;
+}

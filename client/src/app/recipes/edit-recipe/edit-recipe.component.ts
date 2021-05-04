@@ -35,23 +35,22 @@ export class EditRecipeComponent implements OnInit {
   ) {
     let id = this.actRoute.snapshot.paramMap.get('id');
     this.recipeApi.getRecipe(id!).subscribe(data => {
-      console.log(data.categories)
-      this.categoryArray = data.categories;
+      console.log(data.category)
+      this.categoryArray = data.category;
       this.recipeForm = this.fb.group({
       title: [data.title],
-      ingredients: [data.ingredient, [Validators.required]],
-      category: [data.categories],
-      instructions: [data.instruction, [Validators.required]]
+      ingredients: [data.ingredients, [Validators.required]],
+      category: [data.category],
+      instructions: [data.instructions, [Validators.required]]
       })      
     })    
    }
 
   ngOnInit(): void {
-    this.updateBookForm();
+    this.updateForm();
   }
 
-  /* Reactive book form */
-  updateBookForm() {
+  updateForm() {
     this.recipeForm = this.fb.group({
       title: ['', [Validators.required]],
       ingredients: ['', [Validators.required]],
@@ -60,21 +59,21 @@ export class EditRecipeComponent implements OnInit {
     })
   }
 
-  /* Add dynamic languages */
+  
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-    // Add language
+    
     if ((value || '').trim() && this.categoryArray.length < 5) {
       this.categoryArray.push({ name: value.trim() })
     }
-    // Reset the input value
+    
     if (input) {
       input.value = '';
     }
   }
 
-  /* Remove dynamic languages */
+  
   remove(category: Category): void {
     const index = this.categoryArray.indexOf(category);
     if (index >= 0) {
@@ -82,12 +81,12 @@ export class EditRecipeComponent implements OnInit {
     }
   }
 
-  /* Get errors */
+  
   public handleError = (controlName: string, errorName: string) => {
     return this.recipeForm.controls[controlName].hasError(errorName);
   }
 
-  /* Update book */
+  
   updateRecipeForm() {
     console.log(this.recipeForm.value)
     let id = this.actRoute.snapshot.paramMap.get('id');

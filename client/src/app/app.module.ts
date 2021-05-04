@@ -32,7 +32,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select'; 
-import {MatTooltipModule} from '@angular/material/tooltip';  
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { DashboardComponent } from './toolbar/dashboard/dashboard.component';
 import { LoggedOutGuard } from './guards/logged-out.guard';
 import { HandleErrorInterceptor } from './interceptors/handle-error.interceptor';
@@ -41,7 +41,8 @@ import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SearchComponent } from './search/search.component';
-import { SearchResultComponent } from './search-result/search-result.component';
+import { FoodComponent } from './food/food.component';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     EditRecipeComponent,
     CalculatorComponent,
     SearchComponent,
-    SearchResultComponent
+    FoodComponent
   ],
   imports: [
     BrowserModule,

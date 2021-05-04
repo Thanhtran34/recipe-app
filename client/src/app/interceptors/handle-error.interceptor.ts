@@ -36,6 +36,9 @@ export class HandleErrorInterceptor implements HttpInterceptor {
           break;
         case 403:
           this.snackBar.open('Oops, only the creator can edit or delete this recipe!', 'OK', { duration: 5000 });
+          setTimeout(function () {
+            location.reload()
+          }, 1500)
           break;
         default:
           this.snackBar.open('Something went wrong.', 'OK', { duration: 5000 });

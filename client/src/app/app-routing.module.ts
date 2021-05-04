@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
+import { SearchComponent } from './search/search.component';
+
 
 const routes: Routes = [
   {
@@ -29,6 +31,11 @@ const routes: Routes = [
   {
     path: 'calculator',
     component: CalculatorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
     canActivate: [AuthGuard]
   },
   {
