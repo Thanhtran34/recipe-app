@@ -13,7 +13,6 @@ import { RegisterComponent } from './register/register.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './toolbar/header/header.component'; 
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
@@ -42,6 +41,7 @@ import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SearchComponent } from './search/search.component';
 import { FoodComponent } from './food/food.component';
+
 
 
 @NgModule({

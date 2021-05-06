@@ -109,7 +109,6 @@ export class AccountController {
 
       const payload = {
         sub: user.email,
-        given_name: user.username,
         userId: user.id
       }
 
@@ -155,7 +154,7 @@ export class AccountController {
         .status(200)
         .json({ userId: user.id })
     } catch (error) {
-      next(createError(409))
+      next(createError(409, 'Email already exists'))
     }
   }
 }

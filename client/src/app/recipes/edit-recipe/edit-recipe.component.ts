@@ -34,6 +34,7 @@ export class EditRecipeComponent implements OnInit {
     private recipeApi: RecipeService
   ) {
     let id = this.actRoute.snapshot.paramMap.get('id');
+    console.log(id)
     this.recipeApi.getRecipe(id!).subscribe(data => {
       console.log(data.category)
       this.categoryArray = data.category;

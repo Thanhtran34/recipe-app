@@ -3,6 +3,7 @@ import { Recipe } from '../../shared/entities/recipe'
 import { RecipeService } from '../../shared/service/recipe.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,7 +17,7 @@ export class RecipeListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   displayedColumns: string[] = ['id', 'title', 'category', 'action'];
 
-  constructor(private recipeApi: RecipeService) {
+  constructor(private recipeApi: RecipeService, public dialog: MatDialog) {
     this.recipeApi.getRecipes().subscribe(data => {
       this.RecipeData = data;
       this.dataSource = new MatTableDataSource<Recipe>(this.RecipeData);
@@ -37,5 +38,4 @@ export class RecipeListComponent implements OnInit {
       this.recipeApi.deleteRecipe(e.id).subscribe()
     }
   }
-
 }

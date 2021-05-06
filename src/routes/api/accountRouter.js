@@ -16,7 +16,7 @@ const controller = new AccountController()
 
 // Log in
 router.post('/login',
-  (req, res, next) => controller.validateRegisterInput(req, res, next),
+  (req, res, next) => controller.validateLoginInput(req, res, next),
   (req, res, next) => controller.login(req, res, next)
 )
 

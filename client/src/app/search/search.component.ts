@@ -1,5 +1,6 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../shared/service/search.service';
 import { Food } from '../shared/entities/food';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,6 +16,7 @@ export class SearchComponent implements OnInit {
   searchForm!: FormGroup;
   searchData: any = [];
   displayedColumns: string[] = ['name', 'calories', 'protein', 'carbs', 'fat', 'sugar', 'cholesterol', 'caffein'];
+  router!: Router;
 
   constructor(private searchService: SearchService,
     private fb: FormBuilder) {
@@ -22,15 +24,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchForm = this.fb.group({
-      query: ['']
+      query: new FormControl('', [Validators.required])
     });
   }
 
   submit() {
-    this.searchService.search(this.searchForm.value).subscribe(data => {
-      this.searchForm.reset()
-      this.searchData = Array.of(data);
-      this.dataSource = new MatTableDataSource<Food>(this.searchData);
+    this.searchService.search(this.searchForm.value).subscribe((res) => {
+        this.searchData = Array.of(res);
+        this.dataSource = new MatTableDataSource<Food>(this.searchData);
     })
   }
 }

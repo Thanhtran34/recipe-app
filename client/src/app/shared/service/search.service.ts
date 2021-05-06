@@ -1,4 +1,3 @@
-import { SearchData } from './../entities/search';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -14,7 +13,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  search(data: SearchData): Observable<any> {
+  search(data: Observable<any>): Observable<any> {
     return this.http.post<any>(`${this.endpoint}/food/search`, data, { headers: this.headers })
       .pipe(
         map((res) => {

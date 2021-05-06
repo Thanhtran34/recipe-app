@@ -2,6 +2,9 @@
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Search food database</mat-label>
     <input matInput formControlName="query">
+    <mat-error *ngIf="searchForm.get('query')?.hasError('required')">
+      Input is required.
+    </mat-error>
     <mat-icon color="primary" matSuffix id="search-icon" (click)="submit()">search</mat-icon>
   </mat-form-field>
 </form>

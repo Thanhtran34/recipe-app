@@ -37,7 +37,6 @@ const authenticateJWT = (req, res, next) => {
     const payload = jwt.verify(authorization[1], process.env.ACCESS_TOKEN_SECRET)
     req.user = {
       email: payload.sub,
-      username: payload.given_name,
       userId: payload.userId
     }
 

@@ -23,7 +23,7 @@ export class NutrientController {
       method: 'GET',
       qs: {
         pageSize: 1,
-        api_key: 'X6IgqGKeclBEDud4FAfR7kIsl1erjAhPtzf5Jgpx',
+        api_key: process.env.API_KEY,
         query: req.body.query,
         dataType: ['Survey (FNDDS)']
       }
@@ -32,7 +32,7 @@ export class NutrientController {
     request(options, (error, response, body) => {
       if (!error && response.statusCode === 200) {
         body = JSON.parse(body)
-        if (!body.errors) {
+        if (!body.errors && body.foods[0]) {
           res.json({
             name: body.foods[0].description,
             calories: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('energy')).nutrientNumber,
@@ -44,9 +44,8 @@ export class NutrientController {
             fat: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('fat')).nutrientNumber
           })
         } else {
-          res.json({
-            results: [],
-            total: 0
+          res.status(422).json({
+            message: 'Invalid request'
           })
         }
       } else {

@@ -112,6 +112,7 @@ export class RecipeController {
     try {
       await req.recipe.update({
         title: req.body.title,
+        category: req.body.category,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions
       })

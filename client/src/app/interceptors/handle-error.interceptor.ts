@@ -40,6 +40,9 @@ export class HandleErrorInterceptor implements HttpInterceptor {
             location.reload()
           }, 1500)
           break;
+        case 422:
+            this.snackBar.open('Invalid input, try again', 'OK', { duration: 5000 });
+            break;
         default:
           this.snackBar.open('Something went wrong.', 'OK', { duration: 5000 });
       }

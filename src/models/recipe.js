@@ -78,7 +78,11 @@ schema.methods.update = async function (recipeData) {
     this.title = recipeData.title
   }
 
-  if (recipeData.ingredients !== this.ingredients) {
+  if (JSON.stringify(recipeData.category) !== JSON.stringify(this.category)) {
+    this.category = recipeData.category
+  }
+
+  if (JSON.stringify(recipeData.ingredients) !== JSON.stringify(this.ingredients)) {
     this.ingredients = recipeData.ingredients
   }
 
