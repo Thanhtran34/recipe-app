@@ -41,8 +41,8 @@ import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SearchComponent } from './search/search.component';
 import { FoodComponent } from './food/food.component';
-
-
+import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { FoodComponent } from './food/food.component';
     EditRecipeComponent,
     CalculatorComponent,
     SearchComponent,
-    FoodComponent
+    FoodComponent,
+    GetRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +85,8 @@ import { FoodComponent } from './food/food.component';
     MatTableModule,
     MatChipsModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatGridListModule
   ],
   providers: [
     AuthService,

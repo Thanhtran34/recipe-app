@@ -1,0 +1,25 @@
+mat-grid-tile {
+  background: lightblue;
+}
+
+mat-card{
+  width: 80%;
+}
+
+mat-label{
+  font-weight: bold;
+  padding: 3px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.one {
+  background-color: rgb(245, 202, 209);
+}
+
+.two {
+  background-color: rgb(202, 245, 208);
+}
+
+.three {
+  background-color: rgb(245, 202, 245);
+}

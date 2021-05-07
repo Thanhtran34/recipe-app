@@ -166,7 +166,10 @@ export class RecipeController {
       const player = req.user.userId
       if (author.localeCompare(player) === 0) {
         next()
-      } else res.status(403).json('\u{1f914}' + ' Obs, not owner of recipe!')
+      } else {
+        res.status(403).json('\u{1f914}' + ' Obs, not owner of recipe!')
+        res.redirect('/')
+      }
     } catch (err) {
       next(err)
     }

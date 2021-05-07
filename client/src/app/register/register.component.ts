@@ -1,7 +1,7 @@
 import { AuthService } from './../shared/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
@@ -18,23 +18,22 @@ export class RegisterComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public router: Router,
-    public fb: FormBuilder,
     private snackBar: MatSnackBar,
     private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: new FormControl('', [Validators.required]),
-      password2: new FormControl('', [Validators.required, RxwebValidators.compare({ fieldName:'password' })])
-      })
-    }
+    this.registerForm = new FormGroup({
+      username: new FormControl ('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl ('', [Validators.required, Validators.email]),
+      password: new FormControl ('', [Validators.required, Validators.minLength(7)]),
+      password2: new FormControl('', [Validators.required, RxwebValidators.compare({fieldName:'password' })])
+    })
+  }
+
 
   submit() {
     this.authService.registerUser(this.registerForm.value).subscribe((res) => {
-      //this.spinner.show()
       if (res.userId) {
         this.spinner.show()
         setTimeout(() => {

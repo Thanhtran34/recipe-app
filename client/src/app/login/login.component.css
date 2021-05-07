@@ -38,5 +38,5 @@ input {
 mat-card {
   border-style: double;
   border-color: rgb(82, 168, 238);
-  border-width: 3px;
+  border-width: 5px;
 }

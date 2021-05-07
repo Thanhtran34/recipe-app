@@ -10,12 +10,18 @@ import { RegisterComponent } from './register/register.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 import { SearchComponent } from './search/search.component';
+import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
 
 
 const routes: Routes = [
   {
     path: 'recipe-list',
     component: RecipeListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'get-recipe/:id',
+    component: GetRecipeComponent,
     canActivate: [AuthGuard]
   },
   {
