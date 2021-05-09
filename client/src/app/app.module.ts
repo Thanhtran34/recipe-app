@@ -42,7 +42,9 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { SearchComponent } from './search/search.component';
 import { FoodComponent } from './food/food.component';
 import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
-import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'; 
 
 @NgModule({
   declarations: [
@@ -86,7 +88,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatChipsModule,
     MatSelectModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    ServiceWorkerModule.register('./ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     AuthService,

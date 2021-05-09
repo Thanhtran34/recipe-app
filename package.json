@@ -38,6 +38,7 @@
   "eslintConfig": {
     "extends": "@lnu"
   },
+  "eslintIgnore": "client/dist",
   "nodemonConfig": {
     "ext": "js,json,hbs,html,css"
   },

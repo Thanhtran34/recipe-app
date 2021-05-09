@@ -2,15 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Client</title>
+  <title>Kitchen Helper</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-180x180.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
 </head>
 <body class="mat-typography">
+  <noscript>
+    <div>
+      <img src="./assets/icons/panda.png" alt="panda" width="200" height="250">
+      <h2>Hi, It seems like you are using browser without javascript. Please try with another browser!</h2>
+    </div>
+      <style>
+        *, body {
+          font-size: 1.2rem;
+          background-image: none;
+        }
+
+        #calendar {
+          visibility: hidden;
+        }
+      </style>
+  </noscript>
   <app-root></app-root>
 </body>
 </html>
