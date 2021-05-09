@@ -1,0 +1,27 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    margin: 0;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+mat-card {
+    margin: 25px auto;
+}
+
+mat-card-header {
+    font-size: larger;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 575px) {
+    mat-card {
+        margin: 0 auto 25px;
+    }
+}

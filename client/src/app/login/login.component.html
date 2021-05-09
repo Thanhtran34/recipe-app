@@ -1,0 +1,30 @@
+<mat-card class="login">
+  <mat-card-header>Login Form</mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <span class="remember-me">
+        <mat-checkbox (change)="shouldAgree = !shouldAgree">I Have Read And Agree To <a href="
+          https://lagen.nu/1998:204">Terms of use.</a></mat-checkbox>
+      </span>
+      <button mat-raised-button type="submit" class="submit" color="primary" *ngIf="shouldAgree===true">Log In</button>
+    </form>
+  </mat-card-content>
+  <mat-card-footer class="footer">
+    Don't have an account?
+    <span class="reg-link" [routerLink]="['/register']">Register</span>.
+  </mat-card-footer>
+</mat-card>

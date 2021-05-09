@@ -1,0 +1,20 @@
+.dashboard-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 64px;
+  background-image: url(../../../assets/icons/background.jpg);
+  background-repeat: round;
+}
+
+.sidenav__item-text {
+  font-family: fantasy;
+}
+
+.icon {
+  padding: 20px;
+}
+
+

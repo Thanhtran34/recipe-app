@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+        <img id="img" src="../../../assets/icons/breakfast.jpg"/> 
+      </mat-grid-tile>
+      <mat-grid-tile class="one">
+        <mat-label>Title:</mat-label>
+        {{ recipeData.title }}
+      </mat-grid-tile>
+      <mat-grid-tile class="two" *ngIf="recipeData.category">
+        <mat-label>Category:</mat-label>
+        {{ recipeData.category[0].name| json }}
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <img id="img" src="../../../assets/icons/lunch.jpg"/> 
+      </mat-grid-tile>
+      <mat-grid-tile class="three">
+        <mat-label>Ingredients:</mat-label>
+        {{ recipeData.ingredients}}
+      </mat-grid-tile>
+      <mat-grid-tile class="four">
+        <mat-label>Instructions:</mat-label>
+        {{ recipeData.instructions}}
+      </mat-grid-tile>
+    </mat-grid-list>  
+  </mat-card-content>
+</mat-card>
+  
+
+  
+  

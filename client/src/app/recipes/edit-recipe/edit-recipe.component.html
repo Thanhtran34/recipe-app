@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>Update recipe</mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="recipeForm" (ngSubmit)="updateRecipeForm()" #resetRecipeForm="ngForm" novalidate>
+      <div>
+        <mat-form-field class="recipe-full-width">
+          <input matInput placeholder="Recipe title" formControlName="title">
+          <mat-error *ngIf="handleError('title', 'required')">
+            You must provide <strong>title</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="multiple-items">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let categoryArray of categoryArray" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(categoryArray)">
+              {{categoryArray.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Add category" [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <i class="material-icons tooltip-info" matTooltip="Enter category and press enter to add categories">
+            infor
+          </i>
+        </mat-form-field>
+      </div>
+      <span></span>  
+      <div>
+        <mat-form-field class="recipe-full-width">
+          <textarea matInput placeholder="Recipe Ingredients" formControlName="ingredients" id="text"></textarea>
+          <mat-error *ngIf="handleError('ingredients', 'required')">
+            You must provide <strong>ingredients</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="recipe-full-width">
+          <textarea matInput placeholder="Recipe Instructions" id="text" formControlName="instructions"></textarea>
+          <mat-error *ngIf="handleError('instructions', 'required')">
+            You must provide <strong>instructions</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-flat-button color="primary">Update</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+

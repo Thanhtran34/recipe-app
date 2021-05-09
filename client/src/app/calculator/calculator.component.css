@@ -1,0 +1,19 @@
+mat-form-field, button {
+  width: 100%;
+}
+
+.add-goal-link {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+mat-card-header{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
+mat-card {
+  width: 70vw;
+  border-style: groove;
+}

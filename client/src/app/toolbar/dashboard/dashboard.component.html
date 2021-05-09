@@ -1,0 +1,41 @@
+<mat-drawer-container class="dashboard-container" autosize>
+  <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+    <div class="icon">
+      <mat-icon class="sidenav__icon">face</mat-icon>
+      <span class="sidenav__item-text">Enjoy and have fun!</span>
+    </div>
+
+    <div class="icon" [routerLink]="['/recipe-list']" >
+      <mat-icon class="sidenav__icon">fastfood</mat-icon>
+      <span>All Recipes</span>
+    </div>
+
+    <div class="icon" [routerLink]="['/add-recipe']" >
+      <mat-icon class="sidenav__icon">restaurant</mat-icon>
+      <span>Add Recipe</span>
+    </div>
+
+    <div class="icon" [routerLink]="['/search']">
+      <mat-icon class="sidenav__icon">cake</mat-icon>
+      <span>Check Nutrients</span>
+    </div>
+
+    <div class="icon" [routerLink]="['/calculator']">
+      <mat-icon>domain</mat-icon>
+      <span>Calculator</span> 
+    </div> 
+  </mat-drawer>
+
+  <div class="dashboard-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+</mat-drawer-container>
+
+
+
+
+
+
