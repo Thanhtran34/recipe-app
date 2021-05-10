@@ -41,7 +41,7 @@ const main = async () => {
 
   app.use(express.static(path.join(__dirname, 'public')))
 
-  app.get('*', (req, res) => {
+  app.all('*', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, public/index.html))
   })
 
