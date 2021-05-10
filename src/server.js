@@ -10,6 +10,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
+import path from 'path'
 import { config } from './config/passport.js'
 import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
@@ -37,6 +38,12 @@ const main = async () => {
   app.use(passport.initialize())
   // passport config
   config(passport)
+
+  app.use(express.static(path.join(__dirname, 'public')))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, public/index.html))
+  })
 
   // Register routes.
   app.use('/', router)
