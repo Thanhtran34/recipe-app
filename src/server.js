@@ -41,13 +41,12 @@ const main = async () => {
   config(passport)
 
   if (process.env.NODE_ENV === 'production') {
-    // Set static folder
   // Serve static files.
     app.use(express.static('client/dist'))
   
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve('..', 'client', 'dist', 'index.html'))
-    })
+    // app.get('*', (req, res) => {
+    //  res.sendFile(path.resolve('..', 'client', 'dist', 'index.html'))
+    //})
   }
 
   // Register routes.
