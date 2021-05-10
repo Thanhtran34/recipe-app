@@ -41,12 +41,6 @@ const main = async () => {
   // Register routes.
   app.use('/', router)
 
-  app.use(express.static(__dirname + 'dist'))
-
-  app.all('*', (req, res) => {
-    res.status(200).sendFile(__dirname + '../client/dist/index.html')
-  })
-
   // Error handler.
   app.use(function (err, req, res, next) {
     err.status = err.status || 500
