@@ -4,6 +4,9 @@
   "description": "A recipe app to store recipes",
   "type": "module",
   "main": "src/server.js",
+  "engine": {
+     "node": "14.9.0"
+  },
   "scripts": {
     "start": "node src/server.js",
     "start:dev": "nodemon --inspect -r dotenv/config src/server.js",
