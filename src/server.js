@@ -47,7 +47,7 @@ const main = async () => {
     app.use(express.static(join(directoryFullName,'..','client','dist')))
 
     app.get('*', (req, res) => {
-      res.sendFile((join(directoryFullName,'..','client','dist', 'index.html')))
+      res.sendFile((join(directoryFullName,'client','dist', 'index.html')))
     })
   }
 
