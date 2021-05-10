@@ -10,7 +10,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
-import { join } from 'path'
+import { path } from 'path'
 import { config } from './config/passport.js'
 import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
@@ -42,10 +42,10 @@ const main = async () => {
 
   if (process.env.NODE_ENV === 'production') {
     // Serve static files.
-    app.use(express.static(join('..' + 'client/dist')))
+    app.use(express.static(path.join('..' + 'client/dist')))
 
     app.get('*', (req, res) => {
-      res.sendFile(join(__dirname + '../dist/index.html'))
+      res.sendFile(path.join('..' + 'client/dist/index.html'))
     })
   }
 
