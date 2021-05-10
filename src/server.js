@@ -10,7 +10,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
-import { path, dirname, join } from 'path'
+import { join } from 'path'
 import { config } from './config/passport.js'
 import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
@@ -45,7 +45,7 @@ const main = async () => {
     app.use(express.static(join('..' + 'client/dist')))
 
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname + '..' + 'client/dist/index.html'))
+      res.sendFile(join('..' + 'client/dist/index.html'))
     })
   }
 
