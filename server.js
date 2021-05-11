@@ -44,8 +44,7 @@ const main = async () => {
     app.use(express.static('client/dist'))
 
    app.get('*', (req, res) => {
-   // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-   res.redirect('/')
+   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
    })
   }
 
