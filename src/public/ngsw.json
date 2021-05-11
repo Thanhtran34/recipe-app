@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1620746787335,
+  "timestamp": 1620754634371,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "/manifest.webmanifest",
         "/polyfills.94daefd414b8355106ab.js",
         "/runtime.7b63b9fd40098a2e8207.js",
-        "/styles.e203aa8cbaf26b4e0d16.css"
+        "/styles.bda50e0621cbe7acf9c7.css"
       ],
       "patterns": []
     },
@@ -29,6 +29,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "/assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
         "/assets/icons/background.jpg",
         "/assets/icons/breakfast.jpg",
         "/assets/icons/food.png",
@@ -45,15 +46,14 @@
         "/assets/icons/lunch.jpg",
         "/assets/icons/panda.png",
         "/background.222110412d8e684a8d37.jpg",
-        "https://fonts.googleapis.com/**",
-        "https://fonts.gstatic.com"
-
+        "/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.88942715b44b29d2d8a0.woff2"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
+    "/assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2": "979a0030a8805ba7231eb185bcc5434d1d3a2c69",
     "/assets/icons/background.jpg": "c229f5d725b3cd28b1848dc111a7c5fe20b8fca7",
     "/assets/icons/breakfast.jpg": "08e855871a2bb5f9f4021ee9e267b27d2247cbde",
     "/assets/icons/food.png": "2663b09fab05e3d4721185d7536097fdaabc7dcb",
@@ -71,12 +71,13 @@
     "/assets/icons/panda.png": "1296d6e9095a15230348b4286fe66768d82d402d",
     "/background.222110412d8e684a8d37.jpg": "c229f5d725b3cd28b1848dc111a7c5fe20b8fca7",
     "/favicon.ico": "cbb3233acca47bdf0c3c6949247a054f638be4ce",
-    "/index.html": "6e02587acbc4618584f1bd525206e4d71c1bc015",
+    "/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.88942715b44b29d2d8a0.woff2": "979a0030a8805ba7231eb185bcc5434d1d3a2c69",
+    "/index.html": "c34de87321cbaeb314b9fbf6ed86d3f16ceae00f",
     "/main.1d13ba9213d31a32a821.js": "a4af4abbdfdcc9a0f12d8aa338e8db09d8756418",
     "/manifest.webmanifest": "2b0e60305217aad85869c48952524c50130fc94d",
     "/polyfills.94daefd414b8355106ab.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
     "/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.e203aa8cbaf26b4e0d16.css": "c4f3af85024363b9050cf88e9924864307d773ef"
+    "/styles.bda50e0621cbe7acf9c7.css": "1eb0aeab0ba5745dff34255eed19c28ad54473dd"
   },
   "navigationUrls": [
     {
