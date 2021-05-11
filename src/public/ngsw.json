@@ -45,7 +45,7 @@
         "/assets/icons/lunch.jpg",
         "/assets/icons/panda.png",
         "/background.222110412d8e684a8d37.jpg",
-        "https://fonts.googleapis.com/",
+        "https://fonts.googleapis.com/**",
         "https://fonts.gstatic.com"
 
       ],
