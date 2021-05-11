@@ -2831,7 +2831,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                 };
             });
         }
-       /**safeFetch(req) {
+       safeFetch(req) {
             return __awaiter(this, void 0, void 0, function* () {
                 try {
                     return yield this.scope.fetch(req);
@@ -2844,7 +2844,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                     });
                 }
             });
-        } */
+        } 
     }
 
     /**
