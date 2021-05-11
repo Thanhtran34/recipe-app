@@ -43,9 +43,10 @@ const main = async () => {
     // Serve static files.
     app.use(express.static('client/dist'))
 
-   // app.get('*', (req, res) => {
-   //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-   // })
+   app.get('*', (req, res) => {
+   // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+   res.redirect('/')
+   })
   }
 
   // Register routes.
