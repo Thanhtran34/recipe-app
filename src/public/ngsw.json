@@ -44,7 +44,10 @@
         "/assets/icons/icon72.png",
         "/assets/icons/lunch.jpg",
         "/assets/icons/panda.png",
-        "/background.222110412d8e684a8d37.jpg"
+        "/background.222110412d8e684a8d37.jpg",
+        "https://fonts.googleapis.com/",
+        "https://fonts.gstatic.com"
+
       ],
       "patterns": []
     }
