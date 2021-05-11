@@ -169,7 +169,7 @@ describe('POST /recipe', () => {
     backend
       .post('/recipe')
       .set({ Authorization: `Bearer ${accessToken}` })
-      .send({ title: 'test recipe', ingredients: 'test', instructions: 'recipe', category: 'dinner' })
+      .send({ title: 'test recipe', ingredients: 'test', instructions: 'recipe', category: 'dinner'})
       .set('Accept', 'application/json')
       .end((err, res) => {
         if (err) throw err
@@ -178,7 +178,7 @@ describe('POST /recipe', () => {
         expect(res.body.title).to.equal('test recipe')
         expect(res.body.ingredients).deep.equal(['test'])
         expect(res.body.instructions).to.equal('recipe')
-        expect(res.body.category).to.equal('dinner')
+        expect(res.body.category).deep.equal(['dinner'])
         done()
       })
   })
@@ -228,4 +228,36 @@ describe('DELETE /recipe', () => {
         done()
       })
   })
+})
+
+// Testing search nutrient
+describe('POST food/search', () => {
+  it('Should search for nutrient', (done) => {
+    backend
+      .post('/food/search')
+      .send({ query: 'cheese cheddar' })
+      .end((err, res) => {
+        if (err) throw err
+        expect(res.status).to.equal(200)
+        expect(res.body.name).to.equal('Cheese, Cheddar')
+        expect(res.body.calories).to.equal('208')
+        expect(res.body.fat).to.equal('204')
+        expect(res.body.carbs).to.equal('205')
+        expect(res.body.protein).to.equal('203')
+        done()
+      })
+  })
+
+  it('Should return invalid request', (done) => {
+    backend
+      .post('/food/search')
+      .send({ query: '123' })
+      .end((err, res) => {
+        if (err) throw err
+        expect(res.status).to.equal(422)
+        expect(res.body.message).to.equal('Invalid request')
+        done()
+      })
+  })
+  
 })
