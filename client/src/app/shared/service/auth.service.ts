@@ -9,7 +9,7 @@ import { User } from '../entities/user'
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint: string = '/api';
+  endpoint: string = 'api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   

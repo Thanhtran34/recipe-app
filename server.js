@@ -11,9 +11,9 @@ import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
 import path  from 'path'
-import { config } from './config/passport.js'
-import { router } from './routes/router.js'
-import { connectDB } from './config/mongoose.js'
+import { config } from './src/config/passport.js'
+import { router } from './src/routes/router.js'
+import { connectDB } from './src/config/mongoose.js'
 
 /**
  * The main function of the application.
@@ -41,10 +41,10 @@ const main = async () => {
 
   if (process.env.NODE_ENV === 'production') {
     // Serve static files.
-    app.use(express.static('../client/dist'))
+    app.use(express.static('client/dist'))
 
     app.get('*', (req, res) => {
-      res.sendFile(('client/dist/index.html' , { root : __dirname}))
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
   }
 
