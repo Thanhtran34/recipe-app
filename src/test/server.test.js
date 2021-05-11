@@ -3,7 +3,7 @@ import chai from 'chai'
 import request from 'supertest'
 import '../server.js'
 
-const backend = request.agent('http://localhost:3000/api')
+const backend = request.agent('http://localhost:8080/api')
 const expect = chai.expect
 const { describe, it } = pkg
 let accessToken

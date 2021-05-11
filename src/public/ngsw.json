@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1620725107748,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.2e18a089a27f5db6f009.js",
+        "/manifest.webmanifest",
+        "/polyfills.94daefd414b8355106ab.js",
+        "/runtime.7b63b9fd40098a2e8207.js",
+        "/styles.e203aa8cbaf26b4e0d16.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/background.jpg",
+        "/assets/icons/breakfast.jpg",
+        "/assets/icons/food.png",
+        "/assets/icons/home.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-180x180.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/icon.png",
+        "/assets/icons/icon72.png",
+        "/assets/icons/lunch.jpg",
+        "/assets/icons/panda.png",
+        "/background.222110412d8e684a8d37.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/background.jpg": "c229f5d725b3cd28b1848dc111a7c5fe20b8fca7",
+    "/assets/icons/breakfast.jpg": "08e855871a2bb5f9f4021ee9e267b27d2247cbde",
+    "/assets/icons/food.png": "2663b09fab05e3d4721185d7536097fdaabc7dcb",
+    "/assets/icons/home.png": "9f8d169cacf79a3d47951e65da6f913449c38f6e",
+    "/assets/icons/icon-128x128.png": "94c0e77ed90a2806bc4ed8f05c4a165c4d1a4b38",
+    "/assets/icons/icon-144x144.png": "619dd45e69d4aa518ffe52270dc9e4ef99742b3a",
+    "/assets/icons/icon-180x180.png": "f25548b29301f27aeaf9dd893f2e21d737d9c4da",
+    "/assets/icons/icon-192x192.png": "1959d1d4d84b4b11a97de44d903906110127f6cb",
+    "/assets/icons/icon-512x512.png": "633eaa46a3cc8dec0b9eb714b3d5cfc63c622de9",
+    "/assets/icons/icon-72x72.png": "c8109cb0f903b118863487e436b7442b6f35440f",
+    "/assets/icons/icon-96x96.png": "89f51909f7ae1a3b695abea3aaf8478236eff9c5",
+    "/assets/icons/icon.png": "9f8d169cacf79a3d47951e65da6f913449c38f6e",
+    "/assets/icons/icon72.png": "b6b3ba46988b1fa409afeea3618381c586a55203",
+    "/assets/icons/lunch.jpg": "011bd5c6e84664abe04b6c9479e26a91793c1458",
+    "/assets/icons/panda.png": "1296d6e9095a15230348b4286fe66768d82d402d",
+    "/background.222110412d8e684a8d37.jpg": "c229f5d725b3cd28b1848dc111a7c5fe20b8fca7",
+    "/favicon.ico": "cbb3233acca47bdf0c3c6949247a054f638be4ce",
+    "/index.html": "176658b3974c31a37b975f1dd62e24cf6410a591",
+    "/main.2e18a089a27f5db6f009.js": "3597972ad379f97df09ab7a7cfe8d7bf1fc15b59",
+    "/manifest.webmanifest": "2b0e60305217aad85869c48952524c50130fc94d",
+    "/polyfills.94daefd414b8355106ab.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.e203aa8cbaf26b4e0d16.css": "c4f3af85024363b9050cf88e9924864307d773ef"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

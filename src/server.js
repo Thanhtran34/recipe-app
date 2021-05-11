@@ -12,9 +12,9 @@ import logger from 'morgan'
 import passport from 'passport'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import { config } from './src/config/passport.js'
-import { router } from './src/routes/router.js'
-import { connectDB } from './src/config/mongoose.js'
+import { config } from './config/passport.js'
+import { router } from './routes/router.js'
+import { connectDB } from './config/mongoose.js'
 
 /**
  * The main function of the application.
@@ -44,10 +44,10 @@ const main = async () => {
 
   if (process.env.NODE_ENV === 'production') {
     // Serve static files.
-    app.use(express.static(join(directoryFullName, 'dist')))
+    app.use(express.static(join(directoryFullName, 'public')))
 
    app.get('*', (req, res) => {
-   res.sendFile(join(directoryFullName, 'client', 'dist', 'index.html'))
+   res.sendFile(join(directoryFullName, 'public', 'index.html'))
    })
   }
 
