@@ -17,7 +17,9 @@
         "/manifest.webmanifest",
         "/polyfills.94daefd414b8355106ab.js",
         "/runtime.7b63b9fd40098a2e8207.js",
-        "/styles.e203aa8cbaf26b4e0d16.css"
+        "/styles.e203aa8cbaf26b4e0d16.css",
+        "https://fonts.googleapis.com/**",
+        "https://fonts.gstatic.com/**"
       ],
       "patterns": []
     },
