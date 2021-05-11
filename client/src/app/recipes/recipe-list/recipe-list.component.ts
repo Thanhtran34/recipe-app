@@ -19,6 +19,7 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipeApi: RecipeService) {
     this.recipeApi.getRecipes().subscribe(data => {
       this.RecipeData = data;
+      console.log(data)
       this.dataSource = new MatTableDataSource<Recipe>(this.RecipeData);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
