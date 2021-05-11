@@ -10,7 +10,8 @@ import cors from 'cors'
 import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
-import path  from 'path'
+import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
 import { config } from './src/config/passport.js'
 import { router } from './src/routes/router.js'
 import { connectDB } from './src/config/mongoose.js'
@@ -22,6 +23,8 @@ const main = async () => {
   await connectDB()
 
   const app = express()
+  const directoryFullName = dirname(fileURLToPath(import.meta.url))
+
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
   app.use(helmet())
@@ -41,10 +44,10 @@ const main = async () => {
 
   if (process.env.NODE_ENV === 'production') {
     // Serve static files.
-    app.use(express.static('client/dist'))
+    app.use(express.static(join(directoryFullName, 'dist')))
 
    app.get('*', (req, res) => {
-   res.sendFile(path.join('./', 'client', 'dist', 'index.html'))
+   res.sendFile(join(directoryFullName, 'client', 'dist', 'index.html'))
    })
   }
 
