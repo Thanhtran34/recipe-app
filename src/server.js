@@ -27,18 +27,7 @@ const main = async () => {
 
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
-  app.use(helmet.contentSecurityPolicy({
-    directives: {
-      fontSrc: [
-        "'self'", // Default policy for specifiying valid sources for fonts loaded using "@font-face": allow all content coming from origin (without subdomains).
-        'https://fonts.gstatic.com' // Google Fonts.
-      ],
-      styleSrc: [
-        "'self'", // Default policy for valid sources for stylesheets: allow all content coming from origin (without subdomains).
-        'https://fonts.googleapis.com' // Google Fonts.
-      ],
-    }
-  }))
+  app.use(helmet())
 
   app.use(cors())
 
