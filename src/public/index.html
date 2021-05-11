@@ -1,8 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+    style-src   'self' https://fonts.googleapis.com;
+    font-src    'self' data: https://fonts.gstatic.com;
+    img-src     'self' data: content:;
+    media-src   *;
+          "/>
   <base href="/">
   <title>Kitchen Helper</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +21,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
 <link rel="stylesheet" href="styles.e203aa8cbaf26b4e0d16.css"></head>
+
 <body class="mat-typography">
   <noscript>
     <div>
@@ -21,16 +29,14 @@
       <h2>Hi, It seems like you are using browser without javascript. Please try with another browser!</h2>
     </div>
     <style>
-      *, body {
+      *,
+      body {
         font-size: 1.2rem;
         background-image: none;
-      }
-
-      #calendar {
-        visibility: hidden;
       }
     </style>
   </noscript>
   <app-root></app-root>
 <script src="runtime.7b63b9fd40098a2e8207.js" defer=""></script><script src="polyfills.94daefd414b8355106ab.js" defer=""></script><script src="main.476195c19a040e3e8afe.js" defer=""></script></body>
+
 </html>
