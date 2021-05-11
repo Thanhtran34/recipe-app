@@ -11,6 +11,7 @@ import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
 import path  from 'path'
+import { fileURLToPath } from 'url';
 import { config } from './src/config/passport.js'
 import { router } from './src/routes/router.js'
 import { connectDB } from './src/config/mongoose.js'
@@ -22,7 +23,8 @@ const main = async () => {
   await connectDB()
 
   const app = express()
-  const __dirname = path.resolve(path.dirname('')); 
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
   app.use(helmet())
@@ -45,7 +47,7 @@ const main = async () => {
     app.use(express.static('client/dist'))
 
    app.get('*', (req, res) => {
-   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
+   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
    })
   }
 
