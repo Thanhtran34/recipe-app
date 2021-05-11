@@ -22,6 +22,7 @@ const main = async () => {
   await connectDB()
 
   const app = express()
+  const __dirname = path.resolve(path.dirname('')); 
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
   app.use(helmet())
