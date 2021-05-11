@@ -27,12 +27,10 @@ const main = async () => {
 
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
-  app.use(helmet.contentSecurityPolicy({
-    directives: {
-      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      'script-src': ["'self'", 'code.jquery.com', 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'fonts.googleapis.com', 'fonts.gstatic.com' ]
-    }
-  }))
+  app.use(helmet({
+      contentSecurityPolicy: false,
+    })
+  )
 
   app.use(cors())
 
