@@ -24,7 +24,6 @@ const main = async () => {
 
   const app = express()
   const directoryFullName = dirname(fileURLToPath(import.meta.url))
-  const baseURL = process.env.BASE_URL || '/'
 
   // Set various HTTP headers to make the application little more secure (https://www.npmjs.com/package/helmet).
   app.use(helmet())
@@ -50,13 +49,6 @@ const main = async () => {
    res.sendFile(join(directoryFullName, 'public', 'index.html'))
    })
   }
-
-  app.use((req, res, next) => {
-    // Pass the base URL to the views.
-    res.locals.baseURL = baseURL
-
-    next()
-  })
 
   // Register routes.
   app.use('/', router)
