@@ -11,7 +11,6 @@ import helmet from 'helmet'
 import logger from 'morgan'
 import passport from 'passport'
 import { dirname, join } from 'path'
-import { path } from 'path'
 import { fileURLToPath } from 'url'
 import { config } from './config/passport.js'
 import { router } from './routes/router.js'
@@ -46,8 +45,8 @@ const main = async () => {
     // Serve static files.
     app.use(express.static(join(directoryFullName, 'public')))
 
-   app.get('*', (req, res) => {
-   res.sendFile(path.resolve(directoryFullName, 'public', 'index.html'))
+   app.get('*/', (req, res) => {
+   res.sendFile(join(directoryFullName, 'public', 'index.html'))
    })
   }
 
