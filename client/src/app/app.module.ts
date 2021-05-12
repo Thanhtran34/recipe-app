@@ -45,6 +45,7 @@ import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment'; 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,8 @@ import { environment } from '../environments/environment';
       useClass: HandleErrorInterceptor, 
       multi: true 
     },
+    {provide: LocationStrategy, 
+    useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
