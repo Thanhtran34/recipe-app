@@ -46,7 +46,7 @@ const main = async () => {
     // Serve static files.
     app.use(express.static(join(directoryFullName, 'public')))
 
-    app.post('/', (req, res) => {
+    app.get('/', (req, res) => {
       res.sendFile(join(directoryFullName + './public/index.html'))
     })
   }
@@ -56,7 +56,7 @@ const main = async () => {
 
   
   // Error handler.
-  app.use(function (err, req, res, next) {
+  /** app.use(function (err, req, res, next) {
     err.status = err.status || 500
 
     if (req.app.get('env') !== 'development') {
@@ -80,6 +80,7 @@ const main = async () => {
         stack: err.stack
       })
   })
+  */
 
   // Starts the HTTP server listening for connections.
   app.listen(process.env.PORT || 8080, () => {
