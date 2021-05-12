@@ -54,14 +54,14 @@ const authenticateJWT = (req, res, next) => {
 router.param('id', (req, res, next, id) => controller.loadRecipe(req, res, next, id))
 
 // GET tasks
-router.get('get/', authenticateJWT, (req, res, next) => controller.findAll(req, res, next))
+router.get('/get', authenticateJWT, (req, res, next) => controller.findAll(req, res, next))
 
 // GET tasks/:id
 router.get('/:id',
   authenticateJWT, (req, res, next) => controller.find(req, res, next))
 
 // POST tasks
-router.post('post/',
+router.post('/post',
   authenticateJWT, (req, res, next) => controller.create(req, res, next))
 
 // PUT tasks/:id
