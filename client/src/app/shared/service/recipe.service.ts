@@ -17,7 +17,7 @@ export class RecipeService {
     ) { }
 
   addRecipe(recipeData: Recipe): Observable<Recipe> {
-    return this.http.post<Recipe>(`${this.endpoint}/recipe`, recipeData, { headers: this.headers })
+    return this.http.post<Recipe>(`${this.endpoint}/recipe/post`, recipeData, { headers: this.headers })
     .pipe(
       catchError(this.handleError)
     );
@@ -38,7 +38,7 @@ export class RecipeService {
   }
 
   getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(`${this.endpoint}/recipe`, { headers: this.headers });
+    return this.http.get<Recipe[]>(`${this.endpoint}/recipe/get`, { headers: this.headers });
   }
 
   getRecipe(id: string): Observable<any> {
