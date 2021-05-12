@@ -45,8 +45,8 @@ const main = async () => {
     // Serve static files.
     app.use(express.static(join(directoryFullName, 'public')))
 
-   app.all('/', (req, res) => {
-   res.sendFile(join(directoryFullName, 'public', 'index.html'))
+   app.all('*', (req, res) => {
+   res.sendFile(join(directoryFullName + '/public/index.html'))
    })
   }
 
