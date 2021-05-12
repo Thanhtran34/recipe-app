@@ -41,6 +41,9 @@ const main = async () => {
   // passport config
   config(passport)
 
+  // Register routes.
+  app.use('/', router)
+
   if (process.env.NODE_ENV === 'production') {
     // Serve static files.
     app.use(express.static(join(directoryFullName, 'public')))
@@ -49,10 +52,7 @@ const main = async () => {
       res.sendFile(join(directoryFullName + './public/index.html'))
     })
   }
-
-  // Register routes.
-  app.use('/', router)
-
+  
   // Error handler.
   app.use(function (err, req, res, next) {
     err.status = err.status || 500
