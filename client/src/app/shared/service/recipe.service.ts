@@ -10,7 +10,10 @@ import { Observable, throwError } from 'rxjs';
 })
 export class RecipeService {
   endpoint: string = 'api';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'responseType': 'text'
+  });
 
   constructor(
     private http: HttpClient
