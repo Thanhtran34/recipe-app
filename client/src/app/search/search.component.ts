@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
   dataSource!: MatTableDataSource<Food>;
   searchForm!: FormGroup;
   searchData: any = [];
-  displayedColumns: string[] = ['name', 'calories', 'protein', 'carbs', 'fat', 'sugar', 'cholesterol', 'caffein'];
+  displayedColumns: string[] = ['name', 'calories', 'protein', 'carbs', 'fat', 'sugar', 'cholesterol'];
   router!: Router;
 
   constructor(private searchService: SearchService,

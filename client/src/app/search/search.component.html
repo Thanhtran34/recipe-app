@@ -7,6 +7,7 @@
     </mat-error>
     <mat-icon color="primary" matSuffix id="search-icon" (click)="submit()">search</mat-icon>
   </mat-form-field>
+  <p>* All nutrient's data are collected from <a href="https://fdc.nal.usda.gov/index.html">Food Data Central</a></p>
 </form>
 
 <div class="container" *ngIf="searchData.length > 0">
@@ -27,18 +28,13 @@
         <td mat-cell *matCellDef="let element"> {{element.protein}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="caffein">
-        <th mat-header-cell *matHeaderCellDef> Caffein </th>
-        <td mat-cell *matCellDef="let element"> {{element.caffein}} </td>
-      </ng-container>
-
       <ng-container matColumnDef="sugar">
         <th mat-header-cell *matHeaderCellDef> Sugar </th>
         <td mat-cell *matCellDef="let element"> {{element.sugar}} </td>
       </ng-container>
 
       <ng-container matColumnDef="cholesterol">
-        <th mat-header-cell *matHeaderCellDef> Cholesterol </th>
+        <th mat-header-cell *matHeaderCellDef > Cholesterol </th>
         <td mat-cell *matCellDef="let element"> {{element.cholesterol }} </td>
       </ng-container>
 

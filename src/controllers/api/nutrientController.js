@@ -37,7 +37,6 @@ export class NutrientController {
             name: body.foods[0].description,
             calories: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('energy')).nutrientNumber,
             protein: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('protein')).nutrientNumber,
-            caffein: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('caffein')).nutrientNumber,
             sugar: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('sugar')).nutrientNumber,
             cholesterol: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('cholesterol')).nutrientNumber,
             carbs: body.foods[0].foodNutrients.find((nutrient) => nutrient.nutrientName.toLowerCase().includes('carb')).nutrientNumber,
