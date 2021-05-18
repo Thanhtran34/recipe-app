@@ -5,7 +5,6 @@ mat-grid-tile {
 mat-card {
   margin-top: 40px;
   width: 70%;
-  height: auto;
 }
 
 mat-label{
@@ -29,9 +28,5 @@ mat-label{
 @media (max-width: 600px) {
   mat-card {
     min-width: 17rem;
-  }
-
-  .one, .two, .three, .four {
-    font-size: small;
   }
 }
