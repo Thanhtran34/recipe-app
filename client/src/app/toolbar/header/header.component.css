@@ -5,3 +5,7 @@
 .welcome {
   float: left
 }
+
+mat-toolbar {
+  width: 100%
+}
