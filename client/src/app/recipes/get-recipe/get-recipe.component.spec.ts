@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 
 import { GetRecipeComponent } from './get-recipe.component';
 
@@ -8,18 +12,19 @@ describe('GetRecipeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetRecipeComponent ]
+      declarations: [GetRecipeComponent],
+      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      providers: [
+        { provide: Router },
+        { provide: ActivatedRoute }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GetRecipeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

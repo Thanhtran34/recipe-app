@@ -50,7 +50,12 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div>
+      <div *ngIf="categoryArray.length == 0">
+        <mat-error>
+          You must provide at least one <strong>category</strong>
+        </mat-error>
+      </div>
+      <div *ngIf="categoryArray.length != 0">
         <button mat-flat-button color="primary">Submit</button>
       </div>
 

@@ -1,4 +1,8 @@
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { CalculatorComponent } from './calculator.component';
 
@@ -8,7 +12,14 @@ describe('CalculatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculatorComponent ]
+      declarations: [ CalculatorComponent ],
+      imports: [RouterTestingModule, OverlayModule],
+      providers: [
+        FormBuilder,
+        RouterTestingModule,
+        MatSnackBar,
+        OverlayModule
+      ]
     })
     .compileComponents();
   });

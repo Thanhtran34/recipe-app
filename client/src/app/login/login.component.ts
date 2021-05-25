@@ -2,7 +2,6 @@ import { AuthService } from './../shared/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

@@ -4,12 +4,13 @@ import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../entities/user'
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  endpoint: string = '/api';
+  endpoint: string = 'http://localhost:8080/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   
@@ -18,7 +19,6 @@ export class AuthService {
     public router: Router,
   ) { }
 
-  // Register
   registerUser(user: User): Observable<any> {
     let api = `${this.endpoint}/register`;
     return this.http.post<any>(api, user, { headers: this.headers})
@@ -33,12 +33,16 @@ export class AuthService {
       console.log(res)
       localStorage.setItem('access_token', res.access_token);
       localStorage.setItem('userId', res.userId)
+
+      let jwt = new JwtHelperService();
+      jwt.decodeToken(localStorage.getItem('access_token')!);
+
       this.router.navigate([''])
     })
   }
 
   getToken() {
-    return localStorage.getItem('access_token')  
+    return localStorage.getItem('access_token')
   }
 
   doLogout() {

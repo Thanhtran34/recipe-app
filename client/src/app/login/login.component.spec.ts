@@ -1,3 +1,7 @@
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
@@ -9,8 +13,9 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule],
-      declarations: [LoginComponent]
+      imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule, OverlayModule],
+      declarations: [LoginComponent],
+      providers: [RouterTestingModule, MatSnackBar, OverlayModule],
     })
       .compileComponents();
   });
@@ -18,8 +23,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     component.ngOnInit();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -29,41 +34,35 @@ describe('LoginComponent', () => {
   it('form invalid when empty', () => {
     expect(component.loginForm.valid).toBeFalsy();
   });
-  
+
   it('email field validity', () => {
     let email = component.loginForm.controls['email'];
     expect(email.valid).toBeFalsy();
 
-    // Email field is required
+    email.setValue("");
     expect(email.hasError('required')).toBeTruthy();
-
-    // Set email to something
-    email.setValue("test");
-    expect(email.hasError('required')).toBeFalsy();
-    expect(email.hasError('pattern')).toBeTruthy();
-
-    // Set email to something correct
-    email.setValue("test@example.com");
-    expect(email.hasError('required')).toBeFalsy();
-    expect(email.hasError('pattern')).toBeFalsy();
   });
 
   it('password field validity', () => {
     let password = component.loginForm.controls['password'];
+    expect(password.valid).toBeFalsy();
 
-    // Email field is required
+    password.setValue("");
     expect(password.hasError('required')).toBeTruthy();
 
-    // Set email to something
-    password.setValue("123456");
-    expect(password.hasError('required')).toBeFalsy();
-    expect(password.hasError('minlength')).toBeTruthy();
+    password.setValue("Test");
+    expect(password.hasError('minlength', ['minlength'])).toEqual(false);
+  });
 
-    // Set email to something correct
-    password.setValue("123456789");
-    expect(password.hasError('required')).toBeFalsy();
-    expect(password.hasError('minlength')).toBeFalsy();
-});
-  
+  it('should call submit method', () => {
+    spyOn(component, 'submit');
+    component.submit()
+    expect(component.submit).toHaveBeenCalledTimes(1);
+  });
 
+  it('form should be valid', () => {
+    component.loginForm.controls.email.setValue('test@yahoo.com');
+    component.loginForm.controls.password.setValue('Hatinh123%');
+    expect(component.loginForm.valid).toBeTruthy();
+  });
 });

@@ -46,6 +46,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment'; 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatSelectModule,
     MatTooltipModule,
     MatGridListModule,
+    OverlayModule,
     ServiceWorkerModule.register('./ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

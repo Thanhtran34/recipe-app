@@ -9,7 +9,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class RecipeService {
-  endpoint: string = '/api';
+  endpoint: string = 'http://localhost:8080/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(

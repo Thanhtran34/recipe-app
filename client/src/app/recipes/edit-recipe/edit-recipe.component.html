@@ -23,6 +23,9 @@
           <i class="material-icons tooltip-info" matTooltip="Enter category and press enter to add categories">
             infor
           </i>
+          <mat-error *ngIf="categoryArray.length == 0">
+            You must provide <strong>category</strong>
+          </mat-error>
         </mat-form-field>
       </div>
       <span></span>  
@@ -41,8 +44,13 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <div *ngIf="categoryArray.length == 0">
+        <mat-error>
+          You must provide at least one <strong>category</strong>
+        </mat-error>
+      </div>
       <div>
-        <button mat-flat-button color="primary">Update</button>
+        <button mat-flat-button color="primary" *ngIf="categoryArray.length != 0">Update</button>
       </div>
 
     </form>

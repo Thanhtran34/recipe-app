@@ -1,5 +1,5 @@
 mat-grid-tile {
-  background: lightblue;
+  background: white;
 }
 
 mat-card {
@@ -27,6 +27,6 @@ mat-label{
 
 @media (max-width: 600px) {
   mat-card {
-    min-width: 17rem;
+    width: 70vw;
   }
 }

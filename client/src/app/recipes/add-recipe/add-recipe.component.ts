@@ -47,11 +47,11 @@ export class AddRecipeComponent implements OnInit {
     })
   }
 
-  /* Add dynamic languages */
+  /* Add dynamic category */
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-    // Add language
+    // Add category
     if ((value || '').trim() && this.categoryArray.length < 5) {
       this.categoryArray.push({ name: value.trim() })
     }
@@ -61,7 +61,7 @@ export class AddRecipeComponent implements OnInit {
     }
   }
 
-   /* Remove dynamic languages */
+   /* Remove dynamic categories */
    remove(category: Category): void {
     const index = this.categoryArray.indexOf(category);
     if (index >= 0) {
@@ -74,7 +74,7 @@ export class AddRecipeComponent implements OnInit {
       return this.recipeForm.controls[controlName].hasError(errorName);
   }  
 
-  /* Submit book */
+  /* Submit recipe */
   submitRecipeForm() {
     if (this.recipeForm.valid) {
       this.recipeApi.addRecipe(this.recipeForm.value).subscribe(res => {
