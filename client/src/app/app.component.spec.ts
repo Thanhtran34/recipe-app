@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { RouterOutlet } from '@angular/router';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 describe('#AppComponent', () => {
   beforeEach(async () => {
