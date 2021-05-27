@@ -10,18 +10,18 @@ import { RecipeService } from 'src/app/shared/service/recipe.service';
   styleUrls: ['./get-recipe.component.css']
 })
 export class GetRecipeComponent implements OnInit {
-  recipeData: any = []; 
+  recipeData: any = [];
 
   constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
     private recipeApi: RecipeService,
-   
+
   ) {
-    let id = this.actRoute.snapshot.paramMap.get('id');
+    const id = this.actRoute.snapshot.paramMap.get('id');
     this.recipeApi.getRecipe(id!).subscribe(data => {
-      this.recipeData = data
-    })    
+      this.recipeData = data;
+    });
    }
 
   ngOnInit(): void {

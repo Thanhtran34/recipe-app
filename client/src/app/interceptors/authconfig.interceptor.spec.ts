@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AuthconfigInterceptor } from './authconfig.interceptor';
 
-describe('AuthconfigInterceptor', () => {
+describe('#AuthconfigInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
       HttpClientModule,

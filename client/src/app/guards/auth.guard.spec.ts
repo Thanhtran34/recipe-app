@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { AuthGuard } from './auth.guard';
 
-describe('AuthGuard', () => {
+describe('#AuthGuard', () => {
   let guard: AuthGuard;
 
   beforeEach(() => {

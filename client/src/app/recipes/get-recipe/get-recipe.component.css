@@ -25,6 +25,10 @@ mat-label{
   background-color: rgb(245, 202, 245);
 }
 
+.four {
+  background-color: rgb(202, 240, 245);
+}
+
 @media (max-width: 600px) {
   mat-card {
     width: 70vw;

@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CalculatorService } from './calculator.service';
 
-describe('CalculatorService', () => {
+describe('#CalculatorService', () => {
   let service: CalculatorService;
 
   beforeEach(() => {

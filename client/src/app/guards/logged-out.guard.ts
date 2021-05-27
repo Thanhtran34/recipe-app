@@ -17,8 +17,8 @@ export class LoggedOutGuard implements CanActivate {
       if (this.authService.isLoggedIn === false) { // loggedIn on refresh always false
         return true;
     }
-    this.router.navigate(['']);
-    return false;
+      this.router.navigate(['']);
+      return false;
   }
-  
+
 }

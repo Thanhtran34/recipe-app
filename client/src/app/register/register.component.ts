@@ -27,23 +27,23 @@ export class RegisterComponent implements OnInit {
       username: new FormControl ('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl ('', [Validators.required, Validators.email]),
       password: new FormControl ('', [Validators.required, Validators.minLength(7)]),
-      password2: new FormControl('', [Validators.required, RxwebValidators.compare({fieldName:'password' })])
-    })
+      password2: new FormControl('', [Validators.required, RxwebValidators.compare({fieldName: 'password' })])
+    });
   }
 
-
+  // tslint:disable-next-line:typedef
   submit() {
     this.authService.registerUser(this.registerForm.value).subscribe((res) => {
       if (res.userId) {
-        this.spinner.show()
+        this.spinner.show();
         setTimeout(() => {
           /** spinner ends after 1 second */
           this.spinner.hide();
         }, 500);
-        this.registerForm.reset()
-        this.router.navigate(['/login'])
+        this.registerForm.reset();
+        this.router.navigate(['/login']);
         this.snackBar.open('Registration successful!', 'OK', { duration: 5000 });
-      } else console.log(res)
-    })
+      } else { console.log(res); }
+    });
   }
 }

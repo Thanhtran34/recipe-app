@@ -36,9 +36,10 @@ export class HandleErrorInterceptor implements HttpInterceptor {
           break;
         case 403:
           this.snackBar.open('Oops, only the creator can edit or delete this recipe!', 'OK', { duration: 5000 });
-          setTimeout(function () {
-            location.reload()
-          }, 1500)
+          // tslint:disable-next-line:typedef
+          setTimeout(() => {
+            location.reload();
+          }, 1500);
           break;
         case 422:
             this.snackBar.open('Invalid input, try again', 'OK', { duration: 5000 });

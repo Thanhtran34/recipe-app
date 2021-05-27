@@ -4,18 +4,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddRecipeComponent } from './add-recipe.component';
-import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-describe('AddRecipeComponent', () => {
+describe('#AddRecipeComponent', () => {
   let component: AddRecipeComponent;
   let fixture: ComponentFixture<AddRecipeComponent>;
-  let el: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AddRecipeComponent ],
-      imports: [ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
-      providers: [RouterTestingModule]
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        NoopAnimationsModule,
+        RouterTestingModule],
+      providers: [
+        RouterTestingModule]
     })
     .compileComponents();
   });
@@ -35,41 +40,40 @@ describe('AddRecipeComponent', () => {
   });
 
   it('username field validity', () => {
-    let creator = component.recipeForm.controls['username'];
+    const creator = component.recipeForm.controls.username;
     expect(creator.valid).toBeFalsy();
 
-    creator.setValue("");
+    creator.setValue('');
     expect(creator.hasError('required')).toBeTruthy();
   });
 
   it('title field validity', () => {
-    let title = component.recipeForm.controls['title'];
+    const title = component.recipeForm.controls.title;
     expect(title.valid).toBeFalsy();
 
-    title.setValue("");
+    title.setValue('');
     expect(title.hasError('required')).toBeTruthy();
   });
 
   it('ingredients field validity', () => {
-    let ingredients = component.recipeForm.controls['ingredients'];
+    const ingredients = component.recipeForm.controls.ingredients;
     expect(ingredients.valid).toBeFalsy();
 
-    ingredients.setValue("");
+    ingredients.setValue('');
     expect(ingredients.hasError('required')).toBeTruthy();
   });
 
   it('instructions field validity', () => {
-    let instructions = component.recipeForm.controls['instructions'];
+    const instructions = component.recipeForm.controls.instructions;
     expect(instructions.valid).toBeFalsy();
 
-    instructions.setValue("");
+    instructions.setValue('');
     expect(instructions.hasError('required')).toBeTruthy();
   });
 
   it('should call submit method', () => {
     spyOn(component, 'submitRecipeForm');
-    el = fixture.debugElement.query(By.css('button')).nativeElement;
-    el.click();
+    component.submitRecipeForm();
     expect(component.submitRecipeForm).toHaveBeenCalledTimes(1);
   });
 
@@ -81,4 +85,4 @@ describe('AddRecipeComponent', () => {
     component.recipeForm.controls.instructions.setValue('test');
     expect(component.recipeForm.valid).toBeTruthy();
   });
-})
+});

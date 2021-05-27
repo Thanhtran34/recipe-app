@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { RecipeService } from './../../shared/service/recipe.service';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface Category {
   name: string;
@@ -24,7 +24,7 @@ export class AddRecipeComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   recipeForm!: FormGroup;
   categoryArray: Category[] = [];
-  
+
 
   constructor(
     public fb: FormBuilder,
@@ -37,6 +37,7 @@ export class AddRecipeComponent implements OnInit {
     this.submitBookForm();
   }
 
+  // tslint:disable-next-line:typedef
   submitBookForm() {
     this.recipeForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -44,7 +45,7 @@ export class AddRecipeComponent implements OnInit {
       ingredients: ['', [Validators.required]],
       category: [this.categoryArray],
       instructions: ['', [Validators.required]]
-    })
+    });
   }
 
   /* Add dynamic category */
@@ -53,7 +54,7 @@ export class AddRecipeComponent implements OnInit {
     const value = event.value;
     // Add category
     if ((value || '').trim() && this.categoryArray.length < 5) {
-      this.categoryArray.push({ name: value.trim() })
+      this.categoryArray.push({ name: value.trim() });
     }
     // Reset the input value
     if (input) {
@@ -67,18 +68,19 @@ export class AddRecipeComponent implements OnInit {
     if (index >= 0) {
       this.categoryArray.splice(index, 1);
     }
-  } 
-  
+  }
+
   /* Get errors */
   public handleError = (controlName: string, errorName: string) => {
       return this.recipeForm.controls[controlName].hasError(errorName);
-  }  
+  }
 
   /* Submit recipe */
+  // tslint:disable-next-line:typedef
   submitRecipeForm() {
     if (this.recipeForm.valid) {
       this.recipeApi.addRecipe(this.recipeForm.value).subscribe(res => {
-        this.ngZone.run(() => this.router.navigate(['/recipe-list']))
+        this.ngZone.run(() => this.router.navigate(['/recipe-list']));
       });
     }
   }

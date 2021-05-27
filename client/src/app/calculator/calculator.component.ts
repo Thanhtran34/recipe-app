@@ -44,6 +44,7 @@ export class CalculatorComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
   submit(form: FormGroup) {
     if (!form.valid) {
       return;

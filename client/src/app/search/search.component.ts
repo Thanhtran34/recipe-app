@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   router!: Router;
 
   constructor(private searchService: SearchService,
-    private fb: FormBuilder, private spinner: NgxSpinnerService) {
+              private fb: FormBuilder, private spinner: NgxSpinnerService) {
      }
 
   ngOnInit(): void {
@@ -29,15 +29,16 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
   submit() {
     this.searchService.search(this.searchForm.value).subscribe((res) => {
-      this.spinner.show()
-        setTimeout(() => {
+      this.spinner.show();
+      setTimeout(() => {
           /** spinner ends after 1 second */
           this.spinner.hide();
         }, 500);
-        this.searchData = Array.of(res);
-        this.dataSource = new MatTableDataSource<Food>(this.searchData);
-    })
+      this.searchData = Array.of(res);
+      this.dataSource = new MatTableDataSource<Food>(this.searchData);
+    });
   }
 }

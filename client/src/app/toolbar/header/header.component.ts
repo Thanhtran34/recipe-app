@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../shared/service/auth.service'
+import { AuthService } from '../../shared/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +13,12 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  
+
   }
 
+  // tslint:disable-next-line:typedef
   logout() {
-  this.authService.doLogout()
+  this.authService.doLogout();
 }
 
 }

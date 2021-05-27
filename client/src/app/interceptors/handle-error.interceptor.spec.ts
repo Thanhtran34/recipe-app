@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { HandleErrorInterceptor } from './handle-error.interceptor';
 
-describe('HandleErrorInterceptor', () => {
+describe('#HandleErrorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [OverlayModule],
     providers: [

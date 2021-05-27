@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 
 export class SearchService {
-  endpoint: string = '/api';
+  endpoint = '/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
@@ -17,12 +17,13 @@ export class SearchService {
     return this.http.post<any>(`${this.endpoint}/food/search`, data, { headers: this.headers })
       .pipe(
         map((res) => {
-          return res || {}
+          return res || {};
         }),
         catchError(this.handleError)
-      )
+      );
   }
 
+  // tslint:disable-next-line:typedef
   handleError(err: HttpErrorResponse) {
     let msg = '';
     if (err.error instanceof ErrorEvent) {
@@ -32,7 +33,7 @@ export class SearchService {
       // server-side error
       msg = `Error Code: ${err.status}\nMessage: ${err.message}`;
     }
-    console.log(msg)
+    console.log(msg);
     return throwError(msg);
   }
 }

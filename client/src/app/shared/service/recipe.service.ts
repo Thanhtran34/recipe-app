@@ -9,7 +9,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class RecipeService {
-  endpoint: string = '/api';
+  endpoint = '/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(
@@ -23,6 +23,7 @@ export class RecipeService {
     );
   }
 
+  // tslint:disable-next-line:typedef
   updateRecipe(data: Recipe, id: string) {
     return this.http.put(`${this.endpoint}/recipe/${id}`, data, { headers: this.headers })
     .pipe(
@@ -42,16 +43,17 @@ export class RecipeService {
   }
 
   getRecipe(id: string): Observable<any> {
-    let API_URL = `${this.endpoint}/recipe/${id}`;
+    const API_URL = `${this.endpoint}/recipe/${id}`;
     return this.http.get(API_URL, { headers: this.headers })
       .pipe(
         map((res) => {
-          return res || {}
+          return res || {};
         }),
         catchError(this.handleError)
-      )
+      );
   }
 
+  // tslint:disable-next-line:typedef
   handleError(err: HttpErrorResponse) {
     let msg = '';
     if (err.error instanceof ErrorEvent) {
@@ -61,7 +63,7 @@ export class RecipeService {
       // server-side error
       msg = `Error Code: ${err.status}\nMessage: ${err.message}`;
     }
-    console.log(msg)
+    console.log(msg);
     return throwError(msg);
   }
 }

@@ -12,25 +12,25 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './toolbar/header/header.component'; 
+import { HeaderComponent } from './toolbar/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
-import { MatInputModule } from "@angular/material/input";
-import {MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatListModule} from '@angular/material/list'; 
-import {MatIconModule} from '@angular/material/icon'; 
-import {MatMenuModule} from '@angular/material/menu'; 
-import {MatDialogModule} from '@angular/material/dialog'; 
-import {MatPaginatorModule} from '@angular/material/paginator'; 
-import {MatTableModule} from '@angular/material/table'; 
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatSelectModule} from '@angular/material/select'; 
+import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { DashboardComponent } from './toolbar/dashboard/dashboard.component';
 import { LoggedOutGuard } from './guards/logged-out.guard';
@@ -44,7 +44,7 @@ import { FoodComponent } from './food/food.component';
 import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'; 
+import { environment } from '../environments/environment';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -109,11 +109,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
       useClass: AuthconfigInterceptor,
       multi: true
     },
-    { provide: HTTP_INTERCEPTORS, 
-      useClass: HandleErrorInterceptor, 
-      multi: true 
+    { provide: HTTP_INTERCEPTORS,
+      useClass: HandleErrorInterceptor,
+      multi: true
     },
-    {provide: LocationStrategy, 
+    {provide: LocationStrategy,
     useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

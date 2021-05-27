@@ -13,7 +13,7 @@ import { SearchComponent } from './search/search.component';
 import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'recipe-list',
     component: RecipeListComponent,

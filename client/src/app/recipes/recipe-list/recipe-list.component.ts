@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Recipe } from '../../shared/entities/recipe'
+import { Recipe } from '../../shared/entities/recipe';
 import { RecipeService } from '../../shared/service/recipe.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,23 +19,24 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipeApi: RecipeService) {
     this.recipeApi.getRecipes().subscribe(data => {
       this.RecipeData = data;
-      console.log(data)
+      console.log(data);
       this.dataSource = new MatTableDataSource<Recipe>(this.RecipeData);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
       }, 0);
-    })    
+    });
    }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
   delete_recipe(index: number, e: any){
-    if(window.confirm('Are you sure?')) {
+    if (window.confirm('Are you sure?')) {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
-      this.recipeApi.deleteRecipe(e.id).subscribe()
+      this.recipeApi.deleteRecipe(e.id).subscribe();
     }
   }
 }

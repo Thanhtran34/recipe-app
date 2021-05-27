@@ -4,12 +4,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditRecipeComponent } from './edit-recipe.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { By } from '@angular/platform-browser';
 
-describe('EditRecipeComponent', () => {
+describe('#EditRecipeComponent', () => {
   let component: EditRecipeComponent;
   let fixture: ComponentFixture<EditRecipeComponent>;
-  let el: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -35,33 +33,32 @@ describe('EditRecipeComponent', () => {
   });
 
   it('title field validity', () => {
-    let title = component.recipeForm.controls['title'];
+    const title = component.recipeForm.controls.title;
     expect(title.valid).toBeFalsy();
 
-    title.setValue("");
+    title.setValue('');
     expect(title.hasError('required')).toBeTruthy();
   });
 
   it('ingredients field validity', () => {
-    let ingredients = component.recipeForm.controls['ingredients'];
+    const ingredients = component.recipeForm.controls.ingredients;
     expect(ingredients.valid).toBeFalsy();
 
-    ingredients.setValue("");
+    ingredients.setValue('');
     expect(ingredients.hasError('required')).toBeTruthy();
   });
 
   it('instructions field validity', () => {
-    let instructions = component.recipeForm.controls['instructions'];
+    const instructions = component.recipeForm.controls.instructions;
     expect(instructions.valid).toBeFalsy();
 
-    instructions.setValue("");
+    instructions.setValue('');
     expect(instructions.hasError('required')).toBeTruthy();
   });
 
   it('should call submit method', () => {
     spyOn(component, 'updateRecipeForm');
-    el = fixture.debugElement.query(By.css('button')).nativeElement;
-    el.click();
+    component.updateRecipeForm();
     expect(component.updateRecipeForm).toHaveBeenCalledTimes(1);
   });
 

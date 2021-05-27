@@ -5,7 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-describe('SearchComponent', () => {
+describe('#SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
@@ -13,7 +13,7 @@ describe('SearchComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
       imports: [HttpClientTestingModule, ReactiveFormsModule],
-      providers: [NgxSpinnerService,]
+      providers: [NgxSpinnerService, ]
     })
     .compileComponents();
   });
@@ -33,18 +33,18 @@ describe('SearchComponent', () => {
   });
 
   it('query field validity', () => {
-    let query = component.searchForm.controls['query'];
+    const query = component.searchForm.controls.query;
     expect(query.valid).toBeFalsy();
 
-    query.setValue("");
+    query.setValue('');
     expect(query.hasError('required')).toBeTruthy();
   });
 
   it('should call submit method', () => {
     spyOn(component, 'submit');
     const hideSpinnerSpy = spyOn(TestBed.inject(NgxSpinnerService), 'hide');
-    component.submit()
+    component.submit();
     expect(component.submit).toHaveBeenCalledTimes(1);
-    expect(hideSpinnerSpy).toHaveBeenCalledTimes(0)
+    expect(hideSpinnerSpy).toHaveBeenCalledTimes(0);
   });
 });

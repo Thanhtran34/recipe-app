@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { LoggedOutGuard } from './logged-out.guard';
 
-describe('LoggedOutGuard', () => {
+describe('#LoggedOutGuard', () => {
   let guard: LoggedOutGuard;
 
   beforeEach(() => {
