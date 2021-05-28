@@ -47,6 +47,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     CalculatorComponent,
     SearchComponent,
     FoodComponent,
-    GetRecipeComponent
+    GetRecipeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -11,9 +11,14 @@ import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component
 import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 import { SearchComponent } from './search/search.component';
 import { GetRecipeComponent } from './recipes/get-recipe/get-recipe.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 export const routes: Routes = [
+  {
+    path: 'instruction',
+    component: FooterComponent
+  },
   {
     path: 'recipe-list',
     component: RecipeListComponent,
@@ -66,9 +71,8 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
-  }
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

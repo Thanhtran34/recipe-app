@@ -1,0 +1,16 @@
+mat-card {
+  width: auto;
+  margin-top: 6rem;
+  border-style: double;
+  border-color: rgb(82, 168, 238);
+  border-width: 5px;
+}
+
+mat-card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+li {
+  padding: 10px;
+}
