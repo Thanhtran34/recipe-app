@@ -19,7 +19,7 @@ test:karma:
   image: trion/ng-cli-karma:${CLI_VERSION}
   allow_failure: false
   script:
-  - ng test
+  - ng test ./client
 
 staging:
    type: deploy
