@@ -20,8 +20,6 @@ test:karma:
   allow_failure: false
   script:
   - ng test
-  tags:
-  - docker
 
 staging:
    type: deploy
