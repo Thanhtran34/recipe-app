@@ -7,19 +7,8 @@ before_script:
   - gem install dpl
 
 stages:
-   - test
    - staging
    - production
-
-variables:
-  CLI_VERSION: 11.2.7
-
-test:karma:
-  stage: test
-  image: trion/ng-cli-karma:${CLI_VERSION}
-  allow_failure: false
-  script:
-  - ng test ./client
 
 staging:
    type: deploy
