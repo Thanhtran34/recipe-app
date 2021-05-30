@@ -1,5 +1,4 @@
-<div>
-  <mat-card class="welcome-card" *ngIf="!authService.isLoggedIn"> 
+ <mat-card class="welcome-card" *ngIf="!authService.isLoggedIn"> 
   <mat-card-header class="header">
       Welcome to Kitchen Helper!
   </mat-card-header>
@@ -12,6 +11,5 @@
     <p><mat-icon>people</mat-icon> It's my project for my first year at Linnaeus University</p>
   </mat-card-footer>
 </mat-card>
-</div>
 <app-dashboard *ngIf="authService.isLoggedIn"></app-dashboard>
 
