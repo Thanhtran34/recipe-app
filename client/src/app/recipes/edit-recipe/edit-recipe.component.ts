@@ -39,7 +39,7 @@ export class EditRecipeComponent implements OnInit {
       console.log(data.category);
       this.categoryArray = data.category;
       this.recipeForm = this.fb.group({
-      title: [data.title],
+      title: [data.title, [Validators.required]],
       ingredients: [data.ingredients, [Validators.required]],
       category: [data.category],
       instructions: [data.instructions, [Validators.required]]
