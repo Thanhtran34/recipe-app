@@ -3,7 +3,7 @@ mat-card-header {
   font-weight: bold;
 }
 
-mat-form-field, button {
+mat-form-field {
   width: 100%;
 }
 
@@ -39,4 +39,9 @@ mat-card {
   border-style: double;
   border-color: rgb(82, 168, 238);
   border-width: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
 }

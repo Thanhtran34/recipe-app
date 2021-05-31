@@ -4,7 +4,7 @@ mat-grid-tile {
 
 mat-card {
   margin-top: 40px;
-  width: 70%;
+  width: 82%;
 }
 
 mat-label{
@@ -23,13 +23,15 @@ mat-label{
 
 .three {
   background-color: rgb(245, 202, 245);
+  overflow: auto;
 }
 
 .four {
   background-color: rgb(202, 240, 245);
+  overflow: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   mat-card {
     width: 70vw;
   }
