@@ -1,4 +1,4 @@
-## Instroduction
+## Introduction
 
 KitchenHelper is a full-stack MEAN JavaScript, which provides based on MongoDB, Node.js, Express, and Angular. The ideal is to create an application which makes your job in the Kitchen easier. With the use of Kitchenhelper, you can create, read, update and delete your favorite recipes yourself together with the calculation of calories needed everyday depend on your age, weight, height and goal. Moreover, as user you can check for nutrient's carbs, fat and calories with Kitchenhelper and all data are collected from Food Data Central.
 
