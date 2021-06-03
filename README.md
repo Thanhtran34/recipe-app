@@ -17,7 +17,10 @@ After downloading will KitchenHelper work like a native apps.
 
 >npm run test
 
+You need to run your server side in http://localhost:8080 to make these test work.
+
 ### How to run automated test in client
 - Use command to come to client folder and run:
 >ng test 
+or
 >ng test --code-coverage
