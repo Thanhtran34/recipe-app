@@ -24,3 +24,7 @@ You need to run your server side in http://localhost:8080 to make these test wor
 >ng test 
 or
 >ng test --code-coverage
+
+### Test account to try Kitchenhelper (login with this account and begin using this app)
+Email: test@yahoo.com
+Password: Hanoi123%
