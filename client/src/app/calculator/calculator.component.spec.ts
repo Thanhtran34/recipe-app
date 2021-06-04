@@ -53,11 +53,11 @@ describe('#CalculatorComponent', () => {
     // GIVEN
     const fb = TestBed.inject(FormBuilder);
     const formGroup = fb.group({
-      gender: 'male',
-      weight: '75',
-      height: '175',
-      age: '25',
-      activity: 'light',
+      gender: 'female',
+      weight: '80',
+      height: '170',
+      age: '40',
+      activity: 'moderate',
       goal: 'lose'
     });
 
@@ -66,9 +66,9 @@ describe('#CalculatorComponent', () => {
 
     // THEN
     const expectedData = [
-      { calories: 600, grams: 150, macro: 'Protein', percent: 32 },
-      { calories: 703, grams: 176, macro: 'Carbs', percent: 37 },
-      { calories: 593, grams: 66, macro: 'Fat', percent: 31 }
+      { calories: 640, grams: 160, macro: 'Protein', percent: 34 },
+      { calories: 640, grams: 160, macro: 'Carbs', percent: 34 },
+      { calories: 582, grams: 65, macro: 'Fat', percent: 31 }
     ];
     expect(component.data).toEqual(expectedData);
   });
