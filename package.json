@@ -15,10 +15,6 @@
     "lint:fix": "npx eslint ./src --fix || exit 0",
     "test": "mocha src/test/server.test.js --recursive --timeout 15000"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.lnu.se:1dv613/student/tt222kj/projects/recipe-app.git"
-  },
   "author": "Thanh Tran",
   "license": "MIT",
   "private": true,
