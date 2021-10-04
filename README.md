@@ -5,8 +5,7 @@ KitchenHelper is a full-stack MEAN JavaScript, which provides based on MongoDB, 
 ### How to install
 - To run KitchenHelper, you need NodeJs, Express, and Angular Cli in your IDE like VS Code...
 - Download the source code and run "npm install" to install all packages.
-- KitchenHelper can be downloaded from 
-https://kitchenhelper-env-production.herokuapp.com/#/ 
+- Demo https://www.youtube.com/watch?v=IzhgdZSp8So
 
 After downloading will KitchenHelper work like a native apps.
 
@@ -24,7 +23,3 @@ You need to run your server side in http://localhost:8080 to make these test wor
 >ng test 
 or
 >ng test --code-coverage
-
-### Test account to try Kitchenhelper (login with this account and begin using this app)
-Email: test@yahoo.com
-Password: Hanoi123%
