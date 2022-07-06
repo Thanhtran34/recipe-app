@@ -5,7 +5,6 @@ KitchenHelper is a full-stack MEAN JavaScript, which provides based on MongoDB, 
 ### How to install
 - To run KitchenHelper, you need NodeJs, Express, and Angular Cli in your IDE like VS Code...
 - Download the source code and run "npm install" to install all packages.
-- Demo https://www.youtube.com/watch?v=IzhgdZSp8So
 
 After downloading will KitchenHelper work like a native apps.
 
